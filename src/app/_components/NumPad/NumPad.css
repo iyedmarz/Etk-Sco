@@ -1,0 +1,42 @@
+.numpadcontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 26.5rem;
+  height: 26.5rem;
+  border: 1px ;
+  box-shadow: 5px 5px 5px 5px #00000029;
+  padding: 25px;
+  margin : 3px;
+}
+
+.numInput {
+  height: 3.625rem;
+  width: 20.125rem;
+  margin: 10px;
+  border-bottom: 1px solid #8a8a8a;
+  text-align: center;
+  font-size: 30px;
+}
+
+.numpad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  width: 22.5rem;
+  height: 22.5rem;
+}
+
+.numpad button {
+  border: 1px solid #c7c7c7;
+  border-radius: 9px;
+  background-color: white;
+  font-size: 30px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.numpad button:hover {
+  background-color: #eee;
+}
