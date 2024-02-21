@@ -3,8 +3,8 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { TbBasketSearch } from "react-icons/tb";
-// import Abientot from "../_components/_modal/Abientot/Abientot";
-// import Assist from "../_components/_modal/Assistance/Assist";
+import Abientot from "../../_components/_modal/cancel/cancel";
+import Assist from "../../_components/_modal/Assistance/Assist";
 import Cart from "../../_components/Cart/cart";
 import promo from "../../../../public/promo.png";
 import assistImg from "../../../../public/assistance.png";
@@ -61,8 +61,8 @@ export default function Checkout() {
       <div className="cartpay">
         <Cart />
       </div>
-      {/* <Abientot isvisible={abientot} /> */}
-      {/* <Assist isvisible={assist} onClose={handleCloseAssist} /> */}
+      <Abientot isvisible={abientot} />
+      <Assist isvisible={assist} onClose={handleCloseAssist} />
     </div>
   );
 }
