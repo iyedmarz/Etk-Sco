@@ -1,0 +1,31 @@
+.mainfidalite {
+    /* margin-top: 3.625rem; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+Image[alt="fidalite"] {
+    height: 3.875rem;
+    width : 12.625rem;
+}
+
+.verticalLine {
+    border-left: 0.180rem solid black;
+    height: 11.094rem;
+    margin-left: 2.375rem;
+    margin-right: 2.375rem;
+}
+
+.parag {
+    font-size: 45px;
+}
+
+.parag .nogras{
+    font-weight: 200;
+}
+
+.parag .gras{
+    font-weight: bold;
+}
+
