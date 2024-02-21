@@ -1,0 +1,58 @@
+.checkoutContainer {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    min-height: 88vh;
+}
+
+/* Screen and buttons layout and css */
+
+.screenButtons {
+    display: grid;
+    grid-template-rows: 50% 50%;
+}
+
+.screen { 
+    margin: 18px;
+    border: 1px solid #E8E8E8;
+    border-radius: 13px;
+}
+
+.buttons {
+    display: grid ;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 33.33% 33.33% 33.33%;
+    margin-left : 11px;
+    margin-right: 11px;
+    margin-bottom: 11px;
+}
+
+.but {
+    border: 1px solid #E8E8E8;
+    margin: 6px;
+    border-radius: 13px;
+    display: flex;
+    justify-content : center;
+    align-items: center;
+    flex-direction: column;
+    padding : 5px;
+}
+
+.but:hover {
+  background-color: #fafafa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* shadow color on hover */
+}
+
+#cancel:hover {
+    background-color: red;
+}
+
+#cancel  p {
+    color: black;
+}
+
+.but p {
+    color: #707070;
+    font-size: 20px;
+}
+
