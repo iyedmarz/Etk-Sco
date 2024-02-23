@@ -14,7 +14,11 @@ import supprimer from "../../../../../public/supprimer.png";
 import manager from "../../../../../public/manegment.png";
 import "./checkout.css";
 
-export default function Checkout() {
+export default function Checkout({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
   const router = useRouter();
   const [abientot, setAbientot] = useState(false);
   const [assist, setAssist] = useState(false);
@@ -32,7 +36,7 @@ export default function Checkout() {
             className="but"
             id=""
             onClick={() => {
-              router.push("/codePromo");
+              router.push(`/${locale}/codePromo`);
             }}
           >
             <Image src={promo} alt="" height={60} width={60} />

@@ -130,7 +130,6 @@ const Products = () => {
   const handleClick = (index: number) => {
     const selectedIndex = selectedRows.indexOf(index);
     let newSelectedRows: number[] = [];
-
     if (selectedIndex === -1) {
       // If the row is not already selected, add it to the selection
       console.log("select");
@@ -189,7 +188,7 @@ const Products = () => {
         <button
           className="paybut"
           id=""
-          onClick={() => router.push("/fidalite")}
+          onClick={() => router.push(`/${locale}/fidalite`)}
         >
           <p>{t("payBut")}</p>
           <p>$$$$</p>
