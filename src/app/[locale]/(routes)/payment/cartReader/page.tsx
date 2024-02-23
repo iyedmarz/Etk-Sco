@@ -2,8 +2,8 @@
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import PropreButton from "../../../_components/PropreButton";
-import Total from "@/app/_components/TotalCommande";
-import cartbankImg from "./../../../../../public/cartebancaire.png";
+import Total from "./../../../_components/TotalCommande";
+import cartbankImg from "./../../../../../../public/cartebancaire.png";
 
 export default function CartReader() {
   const router = useRouter();

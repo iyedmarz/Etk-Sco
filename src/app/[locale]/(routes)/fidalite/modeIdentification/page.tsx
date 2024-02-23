@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import DiffFid from "../../../_components/diffFidalite/diffFidalite";
 import PropreButton from "../../../_components/PropreButton";
-import scannerCarte from "../../../../../public/Scannercarte.png";
-import numTel from "../../../../../public/telnumero.png";
+import scannerCarte from "../../../../../../public/Scannercarte.png";
+import numTel from "../../../../../../public/telnumero.png";
 
 export default function Fidalité() {
   const [pop, setpop] = useState(false);

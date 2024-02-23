@@ -1,20 +1,22 @@
 "use client";
 import { useRouter } from "next/navigation";
-import PropreButton from "../../../../../_components/PropreButton";
-import DiffFid from "../../../../../_components/diffFidalite/diffFidalite";
-import Numpad from "@/app/_components/NumPad/NumPad";
+import Image from "next/image";
+import PropreButton from "../../../../_components/PropreButton";
+import DiffFid from "../../../../_components/diffFidalite/diffFidalite";
+import ScanCarteImg from "./../../../../../../../public/Scannercarte.png";
 
-export default function saisirManuel() {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+export default function ScanCarte() {
   const router = useRouter();
-
   return (
     <div className="flex justify-center items-center flex-col">
-      <DiffFid
-        title1="Saisissez le numéro de"
-        title2="votre carte de fidalité"
+      <DiffFid title1="Scannez votre" title2="carte de fidalié" />
+      <Image
+        src={ScanCarteImg}
+        className="m-10"
+        alt=""
+        width={250}
+        height={250}
       />
-      <Numpad placeholder={"Saisir N° de Carte"} />
       <div className="flex flex-row">
         <PropreButton
           Classcss="min-w-56 normal-case min-h-16 mt-10 bg-[#F4F4F4] text-[#4E4E4E] hover:bg-[#9C699B] font-bold text-2xl mr-2"
@@ -22,9 +24,9 @@ export default function saisirManuel() {
           Nom="Retour"
         />
         <PropreButton
-          path="/fidalite/solde"
+          path="/fidalite/modeIdentification/scanCarte/saisirManuel"
           Classcss="min-w-56 normal-case  min-h-16 mt-10 bg-[#9c699b] text-[#FFFFFF] hover:text-black font-bold text-2xl mr-2"
-          Nom="Valider"
+          Nom="Saisir le N° de la carte"
         />
       </div>
     </div>

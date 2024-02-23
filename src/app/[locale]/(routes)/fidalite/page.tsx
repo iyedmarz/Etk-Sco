@@ -1,12 +1,11 @@
 "use client";
-import fidalite from "./../../../../public/fidelite.png";
-import DiffFid from "../../_components/diffFidalite/diffFidalite";
 import { IconButton } from "@mui/material";
 import { Check } from "lucide-react";
 import { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
-import PropreButton from "../../_components/PropreButton";
 import { useRouter } from "next/navigation";
+import DiffFid from "../../_components/diffFidalite/diffFidalite";
+import PropreButton from "../../_components/PropreButton";
 
 export default function Fidalité() {
   const [pop, setpop] = useState(false);

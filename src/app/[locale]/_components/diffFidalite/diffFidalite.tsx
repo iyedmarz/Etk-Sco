@@ -1,6 +1,6 @@
 import Image from "next/image";
 import "./diffFidalite.css";
-import fidaliteImg from "./../../../../public/fidelite.png";
+import fidaliteImg from "./../../../../../public/fidelite.png";
 
 type text = {
   title1: string;
