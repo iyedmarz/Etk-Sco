@@ -1,0 +1,32 @@
+header {
+  background:rgba(156, 105, 155, 1) ;
+  opacity: 1;
+  height: 6.938rem;
+  display: grid;
+  grid-template-columns: 33.33% 33.33% 33.33% ;
+}
+
+.container1 {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  margin-left: 1.5rem;
+}
+
+.container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.assistance {
+    
+  font-size: 2.75rem;
+  color: white;
+}
+
+.AuresKonnect{
+  color: white;
+  align-self: center;
+  padding-top: 2rem;
+}
