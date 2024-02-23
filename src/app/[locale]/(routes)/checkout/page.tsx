@@ -65,7 +65,7 @@ export default function Checkout({
         </div>
       </div>
       <div className="cartpay">
-        <Cart />
+        <Cart locale={locale} />
       </div>
       <Abientot isvisible={abientot} />
       <Assist isvisible={assist} onClose={handleCloseAssist} />

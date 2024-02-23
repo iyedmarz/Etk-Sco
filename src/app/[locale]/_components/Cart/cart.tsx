@@ -122,7 +122,7 @@ const products: Product[] = [
   },
 ];
 
-const Products = () => {
+const Products = ({ locale }: { locale: string }) => {
   const router = useRouter();
   const [selectedRows, setSelectedRows] = useState<number[]>([]);
   const t = useTranslations("page.checkout");
