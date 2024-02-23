@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "ignoreBut": "ignore",
+    "backBut": "Back",
+    "manuelBut": "write Manually",
+    "validBut": "Approve"
+  },
+  "page": {
+    "checkout": {
+      "promoBut": "Promo Code",
+      "assistBut": "Assistance",
+      "assistModal": {
+        "title": "assistance",
+        "gras": "on the way"
+      },
+      "cancelBut": "Cancel",
+      "cancelModal": {
+        "title": "thank's for your visit",
+        "gras": "see you later aligator"
+      },
+      "deleteBut": "Delete Item",
+      "managerBut": "Manager",
+      "searchBut": "Search Item",
+      "cart": {
+        "name": "Product",
+        "price": "Price",
+        "quantity": "Qty",
+        "montant": "Amount"
+      },
+      "quantity": "Quantity",
+      "remise": "Rem.:",
+      "TTC": "Tot.TTC:",
+      "payBut": "Pay"
+    },
+    "codePromo": {
+      "title": {
+        "norm1": "Scan your",
+        "norm2": "Type your",
+        "gras": "Promotion Code"
+      }
+    }
+  }
+}

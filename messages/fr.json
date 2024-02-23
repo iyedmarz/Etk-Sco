@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "ignoreBut": "ignorer",
+    "backBut": "Retour",
+    "manuelBut": "Saisier Manuellement",
+    "validBut": "Valider"
+  },
+  "page": {
+    "checkout": {
+      "promoBut": "Code Promo",
+      "assistBut": "Demande d'Assistance",
+      "assistModal": {
+        "title": "Assistance",
+        "gras": "en route"
+      },
+      "cancelBut": "Abandonner",
+      "cancelModal": {
+        "title": "Merci pour votre visite",
+        "gras": "A Bientot"
+      },
+      "deleteBut": "Supprimer l'Article",
+      "managerBut": "Manager",
+      "searchBut": "Recherche d'Article",
+      "cart": {
+        "name": "Désignation",
+        "price": "Prix",
+        "quantity": "Qté",
+        "montant": "Montant"
+      },
+      "quantity": "Quantité:",
+      "remise": "Rem.:",
+      "TTC": "Tot.TTC:",
+      "payBut": "Payer"
+    },
+    "codePromo": {
+      "title": {
+        "norm1": "Veuillez Scanner votre",
+        "norm2": "Veuillez Saisir votre",
+        "gras": "Code Promo"
+      }
+    }
+  }
+}
