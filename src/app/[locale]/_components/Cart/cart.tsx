@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
+import BarcodeReader from "./../BarcodeReader";
 import "./table.css";
 
 interface Product {
@@ -154,7 +155,13 @@ const Products = ({ locale }: { locale: string }) => {
               <th>{t("cart.quantity")}</th>
               <th>{t("cart.montant")}</th>
             </tr>
-            {products.map((product, index) => (
+            <tr className="text-left font-bold border-b-2 ">
+              <th>{<BarcodeReader />}</th>
+              <th> </th>
+              <th> </th>
+              <th> </th>
+            </tr>
+            {/* {products.map((product, index) => (
               <tr
                 key={product.name}
                 className={`border-b-2 ${
@@ -169,7 +176,7 @@ const Products = ({ locale }: { locale: string }) => {
                 <td>{product.qte}</td>
                 <td>{Montant(product.price, product.qte)}</td>
               </tr>
-            ))}
+            ))} */}
           </table>
         </div>
         <div className="">
