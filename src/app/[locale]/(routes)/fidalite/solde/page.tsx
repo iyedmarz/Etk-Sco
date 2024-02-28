@@ -7,7 +7,11 @@ import { IoCloseSharp } from "react-icons/io5";
 import { useRouter } from "next/navigation";
 import Total from "../../../_components/TotalCommande";
 
-export default function Fidalité() {
+export default function Fidalité({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
   const [pop, setpop] = useState(false);
   const router = useRouter();
 
@@ -20,7 +24,10 @@ export default function Fidalité() {
           className="min-h-44 min-w-52 mr-6 border-[3px] border-[#ff0000] rounded-[13px] flex flex-col justify-center
         hover:bg-gray-100 transition-colors duration-300"
         >
-          <IconButton className="border rounded-md flex flex-col">
+          <IconButton
+            className="border rounded-md flex flex-col"
+            onClick={() => router.push(`/${locale}/payment`)}
+          >
             <IoCloseSharp size={70} color="#ff0000" />
             <p className="text-[#ff0000] font-semibold">NON</p>
           </IconButton>
@@ -31,7 +38,7 @@ export default function Fidalité() {
         >
           <IconButton
             className=" border rounded-md flex flex-col hover:bg-transparent"
-            onClick={() => router.push("/payment")}
+            onClick={() => router.push(`/${locale}/payment`)}
           >
             <Check size={70} color="#946193" />
             <p className="text-[#946193] font-semibold">OUI</p>

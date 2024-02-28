@@ -5,7 +5,11 @@ import PropreButton from "../../../../_components/PropreButton";
 import DiffFid from "../../../../_components/diffFidalite/diffFidalite";
 import ScanCarteImg from "./../../../../../../../public/Scannercarte.png";
 
-export default function ScanCarte() {
+export default function ScanCarte({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
   const router = useRouter();
   return (
     <div className="flex justify-center items-center flex-col">
@@ -24,7 +28,7 @@ export default function ScanCarte() {
           Nom="Retour"
         />
         <PropreButton
-          path="/fidalite/modeIdentification/scanCarte/saisirManuel"
+          path={`/${locale}/fidalite/modeIdentification/scanCarte/saisirManuel`}
           Classcss="min-w-56 normal-case  min-h-16 mt-10 bg-[#9c699b] text-[#FFFFFF] hover:text-black font-bold text-2xl mr-2"
           Nom="Saisir le N° de la carte"
         />

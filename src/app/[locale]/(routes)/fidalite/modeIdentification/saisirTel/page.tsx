@@ -4,7 +4,11 @@ import DiffFid from "../../../../_components/diffFidalite/diffFidalite";
 import Numpad from "./../../../../_components/NumPad/NumPad";
 import PropreButton from "../../../../_components/PropreButton";
 
-export default function saisirManuel() {
+export default function saisirManuel({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = useRouter();
 
@@ -19,7 +23,7 @@ export default function saisirManuel() {
           Nom="Retour"
         />
         <PropreButton
-          path="/fidalite/solde"
+          path={`/${locale}/fidalite/solde`}
           Classcss="min-w-56 normal-case  min-h-16 mt-10 bg-[#9c699b] text-[#FFFFFF] hover:text-black font-bold text-2xl mr-2"
           Nom="Valider"
         />

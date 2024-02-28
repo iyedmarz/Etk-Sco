@@ -8,7 +8,11 @@ import PropreButton from "../../../_components/PropreButton";
 import scannerCarte from "../../../../../../public/Scannercarte.png";
 import numTel from "../../../../../../public/telnumero.png";
 
-export default function Fidalité() {
+export default function Fidalité({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
   const [pop, setpop] = useState(false);
   const router = useRouter();
 
@@ -19,7 +23,7 @@ export default function Fidalité() {
         <div className="mr-6  border-[3px]  border-[#00000029] rounded-lg drop-shadow-xl min-w-52 min-h-44 flex justify-center items-center hover:bg-gray-100 transition-colors duration-300 ">
           <IconButton
             onClick={() =>
-              router.push("/fidalite/modeIdentification/scanCarte")
+              router.push(`/${locale}/fidalite/modeIdentification/scanCarte`)
             }
             className=" flex flex-col justify-center items-center hover:bg-transparent"
           >
@@ -30,7 +34,7 @@ export default function Fidalité() {
         <div className="mr-6  border-[3px]  border-[#00000029] rounded-lg drop-shadow-xl min-w-52 min-h-44 flex justify-center items-center hover:bg-gray-100 transition-colors duration-300 ">
           <IconButton
             onClick={() =>
-              router.push("/fidalite/modeIdentification/saisirTel")
+              router.push(`/${locale}/fidalite/modeIdentification/saisirTel`)
             }
             className=" flex flex-col justify-center items-center hover:bg-transparent"
           >

@@ -5,7 +5,11 @@ import PropreButton from "../../../_components/PropreButton";
 import SaisirNum from "../../../_components/SaisirNumero/SaisirNum";
 import NumPad from "../../../_components/NumPad/NumPad";
 
-export default function SaisirCodePromo() {
+export default function SaisirCodePromo({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
   const router = useRouter();
   const t = useTranslations("page.codePromo");
   const n = useTranslations("nav");

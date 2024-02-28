@@ -7,7 +7,11 @@ import { useRouter } from "next/navigation";
 import DiffFid from "../../_components/diffFidalite/diffFidalite";
 import PropreButton from "../../_components/PropreButton";
 
-export default function Fidalité() {
+export default function Fidalité({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
   const [pop, setpop] = useState(false);
   const router = useRouter();
 
@@ -24,7 +28,7 @@ export default function Fidalité() {
         >
           <IconButton
             className="border rounded-md flex flex-col"
-            onClick={() => router.push("/payment")}
+            onClick={() => router.push(`/${locale}/payment`)}
           >
             <IoCloseSharp size={70} color="#ff0000" />
             <p className="text-[#ff0000] font-semibold">NON</p>
@@ -36,7 +40,9 @@ export default function Fidalité() {
         >
           <IconButton
             className=" border rounded-md flex flex-col hover:bg-transparent"
-            onClick={() => router.push("/fidalite/modeIdentification")}
+            onClick={() =>
+              router.push(`/${locale}/fidalite/modeIdentification`)
+            }
           >
             <Check size={70} color="#946193" />
             <p className="text-[#946193] font-semibold">OUI</p>

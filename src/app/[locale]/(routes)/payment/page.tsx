@@ -11,7 +11,11 @@ import carteBankImg from "./../../../../../public/cartebancaire.png";
 import caisseImg from "./../../../../../public/caisse.png";
 import autreImg from "./../../../../../public/autres.png";
 
-export default function Payement() {
+export default function Payement({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
   const [abientot, setAbientot] = useState(false);
   const router = useRouter();
 
@@ -32,7 +36,7 @@ export default function Payement() {
         </div>
         <div className="mr-6  border-[3px]  border-[#00000029] rounded-lg drop-shadow-xl min-w-52 min-h-44 flex justify-center items-center hover:bg-gray-100 transition-colors duration-300 ">
           <IconButton
-            onClick={() => router.push("/payment/cartReader")}
+            onClick={() => router.push(`/${locale}/payment/cartReader`)}
             className=" flex flex-col justify-center items-center hover:bg-transparent"
           >
             <Image src={carteBankImg} width={100} height={200} alt="" />

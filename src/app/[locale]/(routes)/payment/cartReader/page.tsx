@@ -5,7 +5,11 @@ import PropreButton from "../../../_components/PropreButton";
 import Total from "./../../../_components/TotalCommande";
 import cartbankImg from "./../../../../../../public/cartebancaire.png";
 
-export default function CartReader() {
+export default function CartReader({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
   const router = useRouter();
   return (
     <div className="flex justify-center items-center flex-col mt-10">
@@ -28,7 +32,7 @@ export default function CartReader() {
           Nom="Retour"
         />
         <PropreButton
-          path=""
+          path={`/${locale}/checkout`}
           Classcss="min-w-56 normal-case  min-h-16 mt-10 bg-[#9c699b] text-[#FFFFFF] hover:text-black font-bold text-2xl mr-2"
           Nom="Continuer votre Commande"
         />
