@@ -2,16 +2,17 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { TbBasketSearch } from "react-icons/tb";
 import { useTranslations } from "next-intl";
 import Abientot from "../../_components/_modal/cancel/cancel";
 import Assist from "../../_components/_modal/Assistance/Assist";
 import Cart from "../../_components/Cart/cart";
-import promo from "../../../../../public/promo.png";
-import assistImg from "../../../../../public/assistance.png";
-import cancelImg from "../../../../../public/abandonner.png";
-import supprimer from "../../../../../public/supprimer.png";
-import manager from "../../../../../public/manegment.png";
+import promo from "../../../../../public/codePromoIcon.svg";
+import assistImg from "../../../../../public/assistIcon.svg";
+import cancelImg from "../../../../../public/CancelIcon.svg";
+import supprimer from "../../../../../public/deleteIcon.svg";
+import manager from "../../../../../public/managerIcon.svg";
+import search from "../../../../../public/searchIcon.svg";
+
 import "./checkout.css";
 
 export default function Checkout({
@@ -59,7 +60,7 @@ export default function Checkout({
             <p>{t("managerBut")}</p>
           </button>
           <button className="but" id="">
-            <TbBasketSearch size={50} />
+            <Image src={search} alt="" height={50} width={50} />
             <p>{t("searchBut")}</p>
           </button>
         </div>
