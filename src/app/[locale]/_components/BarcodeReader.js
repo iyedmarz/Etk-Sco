@@ -13,16 +13,7 @@ const BarcodeReaderComponent = () => {
     console.error(err);
   };
 
-  return (
-    <div>
-      <BarcodeReader
-        onError={handleError}
-        onScan={handleScan}
-        facingMode="environment"
-      />
-      <p>Scanned Data: {scannedData}</p>
-    </div>
-  );
+  return { scannedData };
 };
 
 export default BarcodeReaderComponent;

@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import BarcodeReader from "./../BarcodeReader";
 import "./table.css";
 
-interface Product {
+type Product = {
+  barcode: string;
   name: string;
   price: number;
-  discount?: number;
-  qte: number;
-}
+  quantity: number;
+};
 
 // function handleClick({ id }: any) {
 //   console.log("selected");
@@ -19,114 +19,28 @@ function Montant({ prix }: any, { quant }: any) {
   return prix * quant;
 }
 
-const products: Product[] = [
-  {
-    name: "Coca Cola 1,5 L",
-    price: 2.0,
-    discount: 0.5,
-    qte: 1,
-  },
-  {
-    name: "Coca Cola 1,5 L",
-    price: 2.0,
-    qte: 1,
-  },
-  {
-    name: "Oasis Tropical canette",
-    price: 1.5,
-    qte: 1,
-  },
-  {
-    name: "Coca Cola 1,5 L",
-    price: 2.0,
-    qte: 1,
-  },
-  {
-    name: "Oasis Tropical canette",
-    price: 1.5,
-    qte: 1,
-  },
-  {
-    name: "Sac",
-    price: 0.2,
-    qte: 1,
-  },
-  {
-    name: "Sac",
-    price: 0.2,
-    qte: 1,
-  },
-  {
-    name: "Sac",
-    price: 0.2,
-    qte: 1,
-  },
-  {
-    name: "Sac",
-    price: 0.2,
-    qte: 1,
-  },
-  {
-    name: "Sac",
-    price: 0.2,
-    qte: 1,
-  },
-  {
-    name: "Sac",
-    price: 0.2,
-    qte: 1,
-  },
-  {
-    name: "Sac",
-    price: 0.2,
-    qte: 1,
-  },
-  {
-    name: "Sac",
-    price: 0.2,
-    qte: 1,
-  },
-  {
-    name: "Sac",
-    price: 0.2,
-    qte: 1,
-  },
-  {
-    name: "Sac",
-    price: 0.2,
-    qte: 1,
-  },
-  {
-    name: "Sac",
-    price: 0.2,
-    qte: 1,
-  },
-  {
-    name: "Sac",
-    price: 0.2,
-    qte: 1,
-  },
-  {
-    name: "Sac",
-    price: 0.2,
-    qte: 1,
-  },
-  {
-    name: "Sac",
-    price: 0.2,
-    qte: 1,
-  },
-  {
-    name: "Sac",
-    price: 0.2,
-    qte: 1,
-  },
-];
-
 const Products = ({ locale }: { locale: string }) => {
   const router = useRouter();
   const [selectedRows, setSelectedRows] = useState<number[]>([]);
   const t = useTranslations("page.checkout");
+  const [data, setData] = useState<Product[]>([]);
+
+  const barcode = BarcodeReader;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`http://localhost:5000/product`);
+        const responseData = await response.json();
+        setData(responseData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, [barcode]);
+
+  console.log(data);
 
   const handleClick = (index: number) => {
     const selectedIndex = selectedRows.indexOf(index);
@@ -155,15 +69,9 @@ const Products = ({ locale }: { locale: string }) => {
               <th>{t("cart.quantity")}</th>
               <th>{t("cart.montant")}</th>
             </tr>
-            <tr className="text-left font-bold border-b-2 ">
-              <th>{<BarcodeReader />}</th>
-              <th> </th>
-              <th> </th>
-              <th> </th>
-            </tr>
-            {/* {products.map((product, index) => (
+            {data.map((product, index) => (
               <tr
-                key={product.name}
+                key={product.barcode}
                 className={`border-b-2 ${
                   selectedRows.includes(index) ? "selected" : ""
                 }`}
@@ -173,10 +81,10 @@ const Products = ({ locale }: { locale: string }) => {
               >
                 <td className="text-left font-bold pl-5">{product.name}</td>
                 <td>{product.price}</td>
-                <td>{product.qte}</td>
-                <td>{Montant(product.price, product.qte)}</td>
+                <td>{product.quantity}</td>
+                <td>{Montant(product.price, product.quantity)}</td>
               </tr>
-            ))} */}
+            ))}
           </table>
         </div>
         <div className="">
