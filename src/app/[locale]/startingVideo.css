@@ -17,6 +17,6 @@
   background: rgba(0, 0, 0, 1); /* Semi-transparent background to overlay the photo */
   display: flex;
   justify-content: center;
-  align-items:self-end;
+  align-items:center;
   flex-direction:column ;
 }
