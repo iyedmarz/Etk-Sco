@@ -1,3 +1,12 @@
+.langSwitcher button{
+  color: black;
+  width: 50px;
+  height: 50px;
+  background-color: azure;
+  border: 2px solid black;
+  border-radius: 2px;
+}
+
 .video-container {
   position: absolute;
   top: 0;
@@ -8,5 +17,6 @@
   background: rgba(0, 0, 0, 1); /* Semi-transparent background to overlay the photo */
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items:self-end;
+  flex-direction:column ;
 }

@@ -1,5 +1,5 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import "./startingVideo.css";
 
@@ -8,17 +8,30 @@ export default function Home({
 }: {
   params: { locale: string };
 }) {
+  const pathname = usePathname();
   const router = useRouter();
   const t = useTranslations("page.checkout");
+  const currentPathname = usePathname();
 
+  const handleChangeLanguage = (newLocale: string) => {
+    const newPathname: string = currentPathname.replace(
+      `/${locale}`,
+      `/${newLocale}`
+    );
+    router.push(newPathname);
+  };
+  
   return (
-    <div>
+    <div className="video-container">
+      <div className="langSwitcher">
+        <button onClick={() => handleChangeLanguage("en")}>EN</button>
+        <button onClick={() => handleChangeLanguage("fr")}>FR</button>
+        {/* Add more buttons for additional languages if needed */}
+      </div>
       <button onClick={() => router.push(`/${locale}/checkout`)}>
-        <div className="video-container">
-          <video autoPlay loop muted>
-            <source src="ETK.mp4" type="video/mp4" />
-          </video>
-        </div>
+        <video autoPlay loop muted>
+          <source src="ETK.mp4" type="video/mp4" />
+        </video>
       </button>
     </div>
   );
