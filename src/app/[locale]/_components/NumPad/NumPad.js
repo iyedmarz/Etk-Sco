@@ -30,18 +30,6 @@ const Numpad = ({ placeholder }) => {
     }
   };
 
-  // const NumberDisplay = ({ number, onChange, placeholder }) => {
-  //   return (
-  //     <input
-  //       type="text"
-  //       value={number}
-  //       onChange={onChange}
-  //       placeholder={placeholder}
-  //       className=""
-  //     />
-  //   );
-  // };
-
   return (
     <div className="numpadcontainer">
       <input
