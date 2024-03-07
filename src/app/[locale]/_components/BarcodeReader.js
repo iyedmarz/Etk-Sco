@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import BarcodeReader from "react-barcode-reader";
 
 const BarcodeReaderComponent = () => {
-  const [scannedData, setScannedData] = useState("No Data");
+  const [scannedData, setScannedData] = useState("");
 
   const handleScan = (data) => {
     setScannedData(data);
