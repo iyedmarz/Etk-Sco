@@ -3,7 +3,9 @@
     "ignoreBut": "ignore",
     "backBut": "Back",
     "manuelBut": "write Manually",
-    "validBut": "Approve"
+    "validBut": "Approve",
+    "continueBut": "Continue Your Command",
+    "cancelBut": "Cancel"
   },
   "page": {
     "checkout": {
@@ -38,6 +40,47 @@
         "norm2": "Type your",
         "gras": "Promotion Code"
       }
+    },
+    "fidalite": {
+      "title1": "Do you want to acces",
+      "title2": "your fidality account ?",
+      "yes": "Yes",
+      "no": "No",
+      "scan": "Scannez votre",
+      "cartefid": "carte de fidalité",
+      "manuelBut2": "Saisier le N° de la Carte",
+      "title3": "Do you want to use",
+      "title4": "your balance",
+      "solde": "Your Balance",
+      "payBut": "Pay"
+    },
+    "saisieMan": {
+      "title1": "Enter the number of",
+      "title2": "your fidality Card",
+      "titleTel": "your phone",
+      "placeHolder": "Enter your Card N°",
+      "placeHolderTel": "Enter your phone N°"
+    },
+    "modeIdentification": {
+      "title1": "Please choose your",
+      "title2": "identification method",
+      "scanCart": "Scan your Card",
+      "saisirTel": "Write Phone N° ",
+      "title3": "Scan your",
+      "title4": "fidality card",
+      "manuelBut2": "Enter your Card N°"
+    },
+    "payment": {
+      "reste": "Left to Pay",
+      "total": "Total Order",
+      "title1": "chose your",
+      "title2": "payment method",
+      "espece": "Cash",
+      "bankCard": "Bank Card",
+      "aCaisse": "At the Register",
+      "other": "Other",
+      "title3": "Follow the instructions",
+      "title4": "of the credit card reader"
     }
   }
 }

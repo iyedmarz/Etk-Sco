@@ -3,7 +3,9 @@
     "ignoreBut": "ignorer",
     "backBut": "Retour",
     "manuelBut": "Saisier Manuellement",
-    "validBut": "Valider"
+    "validBut": "Valider",
+    "continueBut": "Continuer Votre Commande",
+    "cancelBut": "Abandonner"
   },
   "page": {
     "checkout": {
@@ -38,6 +40,49 @@
         "norm2": "Veuillez Saisir votre",
         "gras": "Code Promo"
       }
+    },
+    "fidalite": {
+      "title1": "Souhaitez-vous accéder",
+      "title2": "à votre compte fidélité ?",
+      "yes": "Yes",
+      "no": "No",
+      "scan": "Scannez votre",
+      "cartefid": "carte de fidalité",
+      "manuelBut2": "Saisier le N° de la Carte",
+      "title3": "Souhaitez-vous utiliser",
+      "title4": "votre solde ?",
+      "solde": "Votre Solde",
+      "payBut": "Payer"
+    },
+    "saisieMan": {
+      "title1": "Saisissez le numéro de",
+      "title2": "votre carte de fidalité",
+      "titleTel": "votre téléphone",
+      "placeHolder": "Saisir le N° de Carte",
+      "placeHolderTel": "Saisir le N° de Tél"
+    },
+    "modeIdentification": {
+      "title1": "Veuillez choisir votre",
+      "title2": "mode d'identification",
+      "scanCart": "Scanner Carte",
+      "saisirTel": "Saisir N° Tél",
+      "scanCart2": "Scannez votre",
+      "cartFid": "carte de fidalité",
+      "title3": "Scannez votre",
+      "title4": "carte de fidalité",
+      "manuelBut2": "Saisier le N° de la Carte"
+    },
+    "payment": {
+      "reste": "Reste a payer",
+      "total": "Total Commande",
+      "title1": "Choisissez votre",
+      "title2": "mode de paiement",
+      "espece": "Espèces",
+      "bankCard": "Carte Bancaire",
+      "aCaisse": "A la Caisse",
+      "other": "Autre",
+      "title3": "Suiver les indication",
+      "title4": "du lecteur de carte bancaire"
     }
   }
 }
