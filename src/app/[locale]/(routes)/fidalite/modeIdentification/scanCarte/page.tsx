@@ -20,20 +20,20 @@ export default function ScanCarte({
       <DiffFid title1={t("title3")} title2={t("title4")} />
       <Image
         src={ScanCarteImg}
-        className="m-10"
+        className="m-6"
         alt=""
         width={250}
         height={250}
       />
       <div className="flex flex-row">
         <PropreButton
-          Classcss="min-w-56 normal-case min-h-16 mt-10 bg-[#F4F4F4] text-[#4E4E4E] hover:bg-[#9C699B] font-bold text-2xl mr-2"
+          Classcss="min-w-56 normal-case min-h-16 mt-6 bg-[#F4F4F4] text-[#4E4E4E] hover:bg-[#9C699B] font-bold text-2xl mr-2"
           funct={() => router.back()}
           Nom={n("backBut")}
         />
         <PropreButton
           path={`/${locale}/fidalite/modeIdentification/scanCarte/saisirManuel`}
-          Classcss="min-w-56 normal-case  min-h-16 mt-10 bg-[#9c699b] text-[#FFFFFF] hover:text-black font-bold text-2xl mr-2"
+          Classcss="min-w-56 normal-case  min-h-16 mt-6 bg-[#9c699b] text-[#FFFFFF] hover:text-black font-bold text-2xl mr-2"
           Nom={t("manuelBut2")}
         />
       </div>

@@ -16,11 +16,11 @@ export default function CodePromo({
   const n = useTranslations("nav");
 
   return (
-    <div className="flex justify-center items-center flex-col mt-20">
+    <div className="flex justify-center items-center flex-col mt-12">
       <p className="text-5xl">
         {t("title.norm1")} <b>{t("title.gras")}</b>
       </p>
-      <Image src={Promo} className="m-16" alt="" width={400} height={400} />
+      <Image src={Promo} className="m-10" alt="" width={400} height={400} />
       <div className="flex flex-row">
         <PropreButton
           Classcss="min-w-56 normal-case min-h-16 mt-10 bg-[#F4F4F4] text-[#4E4E4E] hover:bg-[#9C699B] font-bold text-2xl mr-2"

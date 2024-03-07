@@ -40,27 +40,27 @@ export default function Checkout({
               router.push(`/${locale}/codePromo`);
             }}
           >
-            <Image src={promo} alt="" height={60} width={60} />
+            <Image src={promo} alt="" height={50} width={50} />
             <p>{t("promoBut")} </p>
           </button>
           <button className="but" id="" onClick={() => setAssist(true)}>
-            <Image src={assistImg} alt="" height={60} width={60} />
+            <Image src={assistImg} alt="" height={50} width={50} />
             <p>{t("assistBut")}</p>
           </button>
           <button className="but" id="cancel" onClick={() => setAbientot(true)}>
-            <Image src={cancelImg} alt="" height={60} width={60} />
+            <Image src={cancelImg} alt="" height={50} width={50} />
             <p>{t("cancelBut")}</p>
           </button>
           <button className="but" id="">
-            <Image src={supprimer} alt="" height={50} width={50} />
+            <Image src={supprimer} alt="" height={40} width={40} />
             <p>{t("deleteBut")}</p>
           </button>
           <button className="but" id="">
-            <Image src={manager} alt="" height={50} width={50} />
+            <Image src={manager} alt="" height={45} width={45} />
             <p>{t("managerBut")}</p>
           </button>
           <button className="but" id="">
-            <Image src={search} alt="" height={50} width={50} />
+            <Image src={search} alt="" height={45} width={45} />
             <p>{t("searchBut")}</p>
           </button>
         </div>

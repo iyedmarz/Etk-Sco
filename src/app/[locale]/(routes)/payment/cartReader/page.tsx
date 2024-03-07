@@ -18,13 +18,13 @@ export default function CartReader({
   return (
     <div className="flex justify-center items-center flex-col mt-10">
       <Total value={t("reste")} />
-      <p className="flex justify-center items-center flex-col text-5xl mt-16">
+      <p className="flex justify-center items-center flex-col text-5xl mt-10">
         <b>{t("title3")}</b>
         {t("title4")}
       </p>
       <Image
         src={cartbankImg}
-        className="m-16"
+        className="m-14"
         alt=""
         width={200}
         height={200}

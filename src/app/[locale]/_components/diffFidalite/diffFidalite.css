@@ -6,8 +6,8 @@
 }
 
 Image[alt="fidalite"] {
-    height: 3.875rem;
-    width : 12.625rem;
+    height: 3.875rem; /* 12.625rem */
+    width : 12.625rem; /* 12.625rem */
 }
 
 .verticalLine {

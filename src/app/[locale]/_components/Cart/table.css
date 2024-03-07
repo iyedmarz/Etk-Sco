@@ -1,12 +1,11 @@
 .checkoutRightSide {
     width: 100%;
-    height: 100%;
+    height: 98%;
 }
 
 .totalContainer {
-    width: 905;
     height: 81%;
-    margin: 18px 8px 0px 18px;
+    margin: 14px 8px 0px 14px;
     border: 1px solid #E8E8E8;
     border-radius: 13px;
     display: flex;
@@ -71,7 +70,7 @@ td {
     background-color: rgba(156, 105, 155, 1);
     border-radius: 13px;
     padding : 5px;
-    margin: 8px 18px 18px 18px;
+    margin: 8px 14px 0px 14px;
     display: flex;
     justify-content: space-between;
     align-items: center;
