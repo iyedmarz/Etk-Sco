@@ -1,6 +1,5 @@
 "use client";
 import { useRouter, usePathname } from "next/navigation";
-import { useTranslations } from "next-intl";
 import "./startingVideo.css";
 
 export default function Home({
@@ -8,9 +7,7 @@ export default function Home({
 }: {
   params: { locale: string };
 }) {
-  const pathname = usePathname();
   const router = useRouter();
-  const t = useTranslations("page.checkout");
   const currentPathname = usePathname();
 
   const handleChangeLanguage = (newLocale: string) => {
