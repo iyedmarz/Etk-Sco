@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import BarcodeReader from "./../BarcodeReader";
+import BarcodeScanner from "./../BarcodeReader";
 import "./table.css";
 
 type Product = {
@@ -11,51 +11,63 @@ type Product = {
   quantity: number;
 };
 
-// function handleClick({ id }: any) {
-//   console.log("selected");
-// }
-
-function Montant({ prix }: any, { quant }: any) {
-  return prix * quant;
-}
-
 const Products = ({ locale }: { locale: string }) => {
   const router = useRouter();
   const [selectedRows, setSelectedRows] = useState<number[]>([]);
   const t = useTranslations("page.checkout");
-  const [data, setData] = useState<Product[]>([]);
+  const [cart, setCart] = useState<Product[]>([]);
+  const [scannedData, setScannedData] = useState("");
 
-  const barcode = BarcodeReader;
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/product`);
+        const response = await fetch(
+          `http://localhost:5000/product/${scannedData}`
+        );
         const responseData = await response.json();
-        setData(responseData);
+        const existingProductIndex = cart.findIndex(
+          (product) => product.barcode === responseData.barcode
+        );
+        if (existingProductIndex !== -1) {
+          // If product already exists in cart, update its quantity
+          const updatedCart = [...cart];
+          updatedCart[existingProductIndex].quantity += 1;
+          setCart(updatedCart);
+        } else {
+          // If product doesn't exist in cart, add it to cart
+          setCart([...cart, responseData]);
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
-    fetchData();
-  }, [barcode]);
+    if (scannedData) {
+      fetchData();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [scannedData]);
 
-  console.log(data);
+  const handleBarcodeScan = (barcode: string) => {
+    console.log("Scanned barcode:", barcode);
+    setScannedData(barcode);
+  };
 
   const handleClick = (index: number) => {
     const selectedIndex = selectedRows.indexOf(index);
     let newSelectedRows: number[] = [];
     if (selectedIndex === -1) {
-      // If the row is not already selected, add it to the selection
-      console.log("select");
       newSelectedRows = [...selectedRows, index];
     } else {
-      // If the row is already selected, remove it from the selection
-      console.log("diselect");
       newSelectedRows = selectedRows.filter((rowIndex) => rowIndex !== index);
     }
 
     setSelectedRows(newSelectedRows);
+  };
+
+  const Montant = (prod: Product) => {
+    const montant = prod.price * prod.quantity;
+    return montant;
   };
 
   return (
@@ -63,28 +75,30 @@ const Products = ({ locale }: { locale: string }) => {
       <div className="totalContainer">
         <div className="productsContainer">
           <table id="mytable">
-            <tr className="text-left font-bold border-b-2 ">
-              <th>{t("cart.name")} </th>
-              <th>{t("cart.price")}</th>
-              <th>{t("cart.quantity")}</th>
-              <th>{t("cart.montant")}</th>
-            </tr>
-            {data.map((product, index) => (
-              <tr
-                key={product.barcode}
-                className={`border-b-2 ${
-                  selectedRows.includes(index) ? "selected" : ""
-                }`}
-                onClick={() => {
-                  handleClick(index);
-                }}
-              >
-                <td className="text-left font-bold pl-5">{product.name}</td>
-                <td>{product.price}</td>
-                <td>{product.quantity}</td>
-                <td>{Montant(product.price, product.quantity)}</td>
+            <tbody>
+              <tr key="tableHeader" className="text-left font-bold border-b-2">
+                <th>{t("cart.name")} </th>
+                <th>{t("cart.price")}</th>
+                <th>{t("cart.quantity")}</th>
+                <th>{t("cart.montant")}</th>
               </tr>
-            ))}
+              {cart.map((product, index) => (
+                <tr
+                  key={product.barcode}
+                  className={`border-b-2 ${
+                    selectedRows.includes(index) ? "selected" : ""
+                  }`}
+                  onClick={() => {
+                    handleClick(index);
+                  }}
+                >
+                  <td className="text-left font-bold pl-5">{product.name}</td>
+                  <td>{product.price}€</td>
+                  <td>{product.quantity}</td>
+                  <td>{Montant(product)}€</td>
+                </tr>
+              ))}
+            </tbody>
           </table>
         </div>
         <div className="">
@@ -93,9 +107,9 @@ const Products = ({ locale }: { locale: string }) => {
             <button></button>
           </div>
           <div className="attributesContainer">
-            <div> {t("quantity")} </div>
-            <div> {t("remise")} </div>
-            <div> {t("TTC")} </div>
+            <div> {t("quantity")} 0</div>
+            <div> {t("remise")} 0€</div>
+            <div> {t("TTC")} 0€</div>
           </div>
         </div>
       </div>
@@ -106,9 +120,9 @@ const Products = ({ locale }: { locale: string }) => {
           onClick={() => router.push(`/${locale}/fidalite`)}
         >
           <p>{t("payBut")}</p>
-          <p>$$$$</p>
         </button>
       </div>
+      <BarcodeScanner onBarcodeScan={handleBarcodeScan} />
     </div>
   );
 };
