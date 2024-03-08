@@ -4,7 +4,8 @@
 }
 
 .totalContainer {
-    height: 81%;
+    min-height: 82%;
+    max-height: 82%;
     margin: 14px 8px 0px 14px;
     border: 1px solid #E8E8E8;
     border-radius: 13px;
@@ -53,7 +54,7 @@ td {
 
 .productsContainer {
     width: 100%;
-    max-height: 545px; 
+    max-height: 545px; /* max-height: 545px; */
     /* height: 80%; */
     overflow-y: scroll;
     border: 1px solid #FAFAFA;
