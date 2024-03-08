@@ -13,10 +13,24 @@ type Product = {
 
 const Products = ({ locale }: { locale: string }) => {
   const router = useRouter();
-  const [selectedRows, setSelectedRows] = useState<number[]>([]);
   const t = useTranslations("page.checkout");
+  const [selectedRows, setSelectedRows] = useState<number[]>([]);
   const [cart, setCart] = useState<Product[]>([]);
   const [scannedData, setScannedData] = useState("");
+  let total: number = 0;
+
+  // Load cart from localStorage on component mount
+  useEffect(() => {
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+      setCart(JSON.parse(savedCart));
+    }
+  }, []);
+
+  // Save cart to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -67,6 +81,7 @@ const Products = ({ locale }: { locale: string }) => {
 
   const Montant = (prod: Product) => {
     const montant = prod.price * prod.quantity;
+    total = total + montant;
     return montant;
   };
 
@@ -120,6 +135,7 @@ const Products = ({ locale }: { locale: string }) => {
           onClick={() => router.push(`/${locale}/fidalite`)}
         >
           <p>{t("payBut")}</p>
+          <p>{total}€</p>
         </button>
       </div>
       <BarcodeScanner onBarcodeScan={handleBarcodeScan} />
