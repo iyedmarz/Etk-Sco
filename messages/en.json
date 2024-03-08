@@ -29,7 +29,7 @@
         "quantity": "Qty",
         "montant": "Amount"
       },
-      "quantity": "Quantity",
+      "quantity": "Quantity:",
       "remise": "Rem.:",
       "TTC": "Tot.TTC:",
       "payBut": "Pay"
