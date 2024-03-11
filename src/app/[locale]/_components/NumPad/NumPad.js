@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import "./NumPad.css";
 
-const Numpad = ({ placeholder }) => {
+const Numpad = ({ placeholder, onData }) => {
   const [number, setNumber] = useState("");
+
+  const handleChange = (event) => {
+    const newValue = event.target.value;
+    setNumber(newValue);
+    // Call the function passed from the parent with the input value
+    onData(newValue);
+  };
 
   const buttons = [
     { value: "1", className: "col-start-1 col-end-2 row-start-1 row-end-2" },
@@ -30,14 +37,14 @@ const Numpad = ({ placeholder }) => {
     }
   };
 
+  console.log(number);
+
   return (
     <div className="numpadcontainer">
       <input
         type="text"
         value={number}
-        onChange={(e) => {
-          e.target.value;
-        }}
+        onChange={handleChange}
         placeholder={placeholder}
         className="numInput"
       />
