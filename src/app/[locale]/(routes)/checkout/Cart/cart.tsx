@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import BarcodeScanner from "./../BarcodeReader";
+import BarcodeScanner from "../../../_components/BarcodeReader";
 import "./table.css";
 
 type Product = {
@@ -19,22 +19,13 @@ const Products = ({ locale }: { locale: string }) => {
   const [scannedData, setScannedData] = useState("");
   let total: number = 0;
 
-  // Load cart from localStorage on component mount
-  useEffect(() => {
-    const savedCart = localStorage.getItem("cart");
-    if (savedCart) {
-      setCart(JSON.parse(savedCart));
-    }
-  }, []);
-
-  // Save cart to localStorage whenever it changes
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
+        // const storedData = localStorage.getItem("myCart");
+        // if (storedData) {
+        //   setCart(JSON.parse(storedData));
+        // } else {
         const response = await fetch(
           `http://localhost:5000/product/${scannedData}`
         );
@@ -49,8 +40,11 @@ const Products = ({ locale }: { locale: string }) => {
           setCart(updatedCart);
         } else {
           // If product doesn't exist in cart, add it to cart
+          responseData.quantity = 1;
           setCart([...cart, responseData]);
         }
+        //   localStorage.setItem("myCart", JSON.stringify(cart));
+        // }
       } catch (error) {
         console.error("Error fetching data:", error);
       }
