@@ -15,50 +15,34 @@ const Products = ({ locale }: { locale: string }) => {
   const router = useRouter();
   const t = useTranslations("page.checkout");
   const [selectedRows, setSelectedRows] = useState<number[]>([]);
-  const [cart, setCart] = useState<Product[]>([]);
-  const [scannedData, setScannedData] = useState("");
+  let [cart, setCart] = useState<Product[]>([]);
   let total: number = 0;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // const storedData = localStorage.getItem("myCart");
-        // if (storedData) {
-        //   setCart(JSON.parse(storedData));
-        // } else {
-        const response = await fetch(
-          `http://localhost:5000/product/${scannedData}`
-        );
-        const responseData = await response.json();
-        const existingProductIndex = cart.findIndex(
-          (product) => product.barcode === responseData.barcode
-        );
-        if (existingProductIndex !== -1) {
-          // If product already exists in cart, update its quantity
-          const updatedCart = [...cart];
-          updatedCart[existingProductIndex].quantity += 1;
-          setCart(updatedCart);
-        } else {
-          // If product doesn't exist in cart, add it to cart
-          responseData.quantity = 1;
-          setCart([...cart, responseData]);
-        }
-        //   localStorage.setItem("myCart", JSON.stringify(cart));
-        // }
-      } catch (error) {
-        console.error("Error fetching data:", error);
+  const fetchData = async (barcode: string) => {
+    try {
+      const response = await fetch(`http://localhost:5000/product/${barcode}`);
+      const responseData = await response.json();
+      const existingProductIndex = cart.findIndex(
+        (product) => product.barcode === responseData.barcode
+      );
+      if (existingProductIndex !== -1) {
+        // If product already exists in cart, update its quantity
+        const updatedCart = [...cart];
+        updatedCart[existingProductIndex].quantity += 1;
+        setCart(updatedCart);
+      } else {
+        // If product doesn't exist in cart, add it to cart
+        responseData.quantity = 1;
+        setCart([...cart, responseData]);
       }
-    };
-
-    if (scannedData) {
-      fetchData();
+    } catch (error) {
+      console.error("Error fetching data:", error);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [scannedData]);
+  };
 
   const handleBarcodeScan = (barcode: string) => {
     console.log("Scanned barcode:", barcode);
-    setScannedData(barcode);
+    fetchData(barcode);
   };
 
   const handleClick = (index: number) => {
