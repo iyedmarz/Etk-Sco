@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { useTranslations } from "next-intl";
 import Abientot from "../../_components/_modal/cancel/cancel";
 import Assist from "../../_components/_modal/Assistance/Assist";
-import Cart from "../../_components/Cart/cart";
+import Cart from "./Cart/cart";
 import promo from "../../../../../public/codePromoIcon.svg";
 import assistImg from "../../../../../public/assistIcon.svg";
 import cancelImg from "../../../../../public/CancelIcon.svg";
