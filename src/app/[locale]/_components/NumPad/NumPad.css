@@ -3,17 +3,18 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 26.5rem;
-  height: 26.5rem;
+  width: 24.2rem;
+  height: 24.2rem;
   border: 1px ;
+  border-radius: 5px ;
   box-shadow: 5px 5px 5px 5px #00000029;
-  padding: 25px;
+  padding: 10px;
   margin : 0px;
 }
 
 .numInput {
-  height: 3.625rem;
-  width: 20.125rem;
+  height: 15%;
+  width: 92%;
   margin: 10px;
   border-bottom: 1px solid #8a8a8a;
   text-align: center;
@@ -24,8 +25,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
-  width: 22.5rem;
-  height: 22.5rem;
+  width: 95%;
+  height: 85%;
 }
 
 .numpad button {

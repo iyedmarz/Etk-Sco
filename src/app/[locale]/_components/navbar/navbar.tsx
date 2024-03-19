@@ -4,6 +4,8 @@ import assistance from "../../../../../public/assistance.png";
 import AuresKonnect from "../../../../../public/Aures.png";
 
 export default function Navbar() {
+  
+
   return (
     <header className="headercontainer">
       <div className="container1">

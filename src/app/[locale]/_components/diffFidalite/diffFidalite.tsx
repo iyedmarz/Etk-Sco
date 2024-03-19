@@ -12,7 +12,7 @@ function DiffFid({ title1, title2 }: text) {
   return (
     <div className="maincontainer">
       <div className="mainfidalite">
-        <Image src={fidaliteImg} alt="fidalite" />
+        <Image src={fidaliteImg} alt="fidalite" height={300} width={300} />
         <div className="verticalLine"></div>
         <div className="parag">
           <p className="nogras">{title1}</p>

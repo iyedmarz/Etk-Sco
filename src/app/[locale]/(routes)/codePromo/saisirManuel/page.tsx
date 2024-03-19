@@ -72,9 +72,11 @@ export default function SaisirCodePromo({
   };
 
   return (
-    <div className="flex flex-col justify-center items-center ">
+    <div className="flex flex-col justify-around items-center size-full">
       <SaisirNum aSaisir={t("title.gras")} />
-      <NumPad placeholder={t("title.gras")} onInput={handlePromoCode} />
+      <div className="mt-5 mb-5">
+        <NumPad placeholder={t("title.gras")} onInput={handlePromoCode} />
+      </div>
       <div>
         <PropreButton
           Classcss="min-w-56 normal-case min-h-16 mt-10 bg-[#F4F4F4] text-[#4E4E4E] hover:bg-[#9C699B] font-bold text-2xl mr-2"
