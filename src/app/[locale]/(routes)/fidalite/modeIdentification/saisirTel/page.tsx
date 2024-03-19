@@ -14,10 +14,13 @@ export default function saisirManuel({
   const router = useRouter();
   const t = useTranslations("page.saisieMan");
   const n = useTranslations("nav");
+
+  const handleClientTel = () => {};
+
   return (
     <div className="flex justify-center items-center flex-col">
       <DiffFid title1={t("title1")} title2={t("titleTel")} />
-      <Numpad placeholder={t("placeHolderTel")} onData={undefined} />
+      <Numpad placeholder={t("placeHolderTel")} onInput={handleClientTel} />
       <div className="flex flex-row">
         <PropreButton
           Classcss="min-w-56 normal-case min-h-16 mt-10 bg-[#F4F4F4] text-[#4E4E4E] hover:bg-[#9C699B] font-bold text-2xl mr-2"
