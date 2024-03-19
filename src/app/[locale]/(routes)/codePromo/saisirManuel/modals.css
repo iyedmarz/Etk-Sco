@@ -1,0 +1,16 @@
+.popNotFound {
+    width:60% ; /*55rem */
+    height: 50% ; /* 38.75rem */
+    background-color: white;
+    padding : 1rem;
+    border-radius: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titreNotFound {
+    margin: 5%;
+    font-size: 45px;
+}
