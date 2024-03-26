@@ -1,8 +1,10 @@
 "use client";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useTranslations } from "next-intl";
+import { Provider } from "react-redux";
+import Image from "next/image";
+import store from "./Cart/store";
 import Abientot from "../../_components/_modal/cancel/cancel";
 import Assist from "../../_components/_modal/Assistance/Assist";
 import Cart from "./Cart/cart";
@@ -29,47 +31,59 @@ export default function Checkout({
   };
 
   return (
-    <div className="checkoutContainer">
-      <div className="screenButtons">
-        <div className="screen"></div>
-        <div className="buttons">
-          <button
-            className="but"
-            id=""
-            onClick={() => {
-              router.push(`/${locale}/codePromo`);
-            }}
-          >
-            <Image src={promo} alt="" height={50} width={50} />
-            <p>{t("promoBut")} </p>
-          </button>
-          <button className="but" id="" onClick={() => setAssist(true)}>
-            <Image src={assistImg} alt="" height={50} width={50} />
-            <p>{t("assistBut")}</p>
-          </button>
-          <button className="but" id="cancel" onClick={() => setAbientot(true)}>
-            <Image src={cancelImg} alt="" height={50} width={50} />
-            <p>{t("cancelBut")}</p>
-          </button>
-          <button className="but" id="">
-            <Image src={supprimer} alt="" height={40} width={40} />
-            <p>{t("deleteBut")}</p>
-          </button>
-          <button className="but" id="">
-            <Image src={manager} alt="" height={45} width={45} />
-            <p>{t("managerBut")}</p>
-          </button>
-          <button className="but" id="">
-            <Image src={search} alt="" height={45} width={45} />
-            <p>{t("searchBut")}</p>
-          </button>
+    <Provider store={store}>
+      <div className="checkoutContainer">
+        <div className="screenButtons">
+          <div className="screen"></div>
+          <div className="buttons">
+            <button
+              className="but"
+              id=""
+              onClick={() => {
+                router.push(`/${locale}/codePromo`);
+              }}
+            >
+              <Image src={promo} alt="" height={50} width={50} />
+              <p>{t("promoBut")} </p>
+            </button>
+            <button className="but" id="" onClick={() => setAssist(true)}>
+              <Image src={assistImg} alt="" height={50} width={50} />
+              <p>{t("assistBut")}</p>
+            </button>
+            <button
+              className="but"
+              id="cancel"
+              onClick={() => setAbientot(true)}
+            >
+              <Image src={cancelImg} alt="" height={50} width={50} />
+              <p>{t("cancelBut")}</p>
+            </button>
+            <button className="but" id="">
+              <Image src={supprimer} alt="" height={40} width={40} />
+              <p>{t("deleteBut")}</p>
+            </button>
+            <button className="but" id="">
+              <Image src={manager} alt="" height={45} width={45} />
+              <p>{t("managerBut")}</p>
+            </button>
+            <button
+              className="but"
+              id=""
+              onClick={() => {
+                router.push(`/${locale}/rechercheProd`);
+              }}
+            >
+              <Image src={search} alt="" height={45} width={45} />
+              <p>{t("searchBut")}</p>
+            </button>
+          </div>
         </div>
+        <div className="cartpay">
+          <Cart locale={locale} />
+        </div>
+        <Abientot isvisible={abientot} />
+        <Assist isvisible={assist} onClose={handleCloseAssist} />
       </div>
-      <div className="cartpay">
-        <Cart locale={locale} />
-      </div>
-      <Abientot isvisible={abientot} />
-      <Assist isvisible={assist} onClose={handleCloseAssist} />
-    </div>
+    </Provider>
   );
 }
