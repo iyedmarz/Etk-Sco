@@ -1,6 +1,4 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-"use client";
-import { useRouter } from "next/navigation";
 import DiffFid from "../../../../_components/diffFidalite/diffFidalite";
 import Numpad from "./../../../../_components/NumPad/NumPad";
 import PropreButton from "../../../../_components/PropreButton";
@@ -11,7 +9,6 @@ export default function saisirManuel({
 }: {
   params: { locale: string };
 }) {
-  const router = useRouter();
   const t = useTranslations("page.saisieMan");
   const n = useTranslations("nav");
 
@@ -24,7 +21,7 @@ export default function saisirManuel({
       <div className="flex flex-row">
         <PropreButton
           Classcss="min-w-56 normal-case min-h-16 mt-5 bg-[#F4F4F4] text-[#4E4E4E] hover:bg-[#9C699B] font-bold text-2xl mr-2"
-          funct={() => router.back()}
+          path="back"
           Nom={n("backBut")}
         />
         <PropreButton
