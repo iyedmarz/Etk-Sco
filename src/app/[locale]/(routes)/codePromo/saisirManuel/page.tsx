@@ -80,7 +80,7 @@ export default function SaisirCodePromo({
       <div>
         <PropreButton
           Classcss="min-w-56 normal-case min-h-16 mt-10 bg-[#F4F4F4] text-[#4E4E4E] hover:bg-[#9C699B] font-bold text-2xl mr-2"
-          funct={() => router.back()}
+          path="back"
           Nom={n("backBut")}
         />
         <PropreButton
@@ -89,6 +89,7 @@ export default function SaisirCodePromo({
           Nom={n("validBut")}
         />
       </div>
+      {/* Modals for Handling Promo Code Validation (Valid or Not) to Pop Up when Called */}
       <Modal
         ref={refnotfound}
         className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center"
@@ -114,13 +115,6 @@ export default function SaisirCodePromo({
           <p className="titreNotFound">
             <b>Valid Promo Code!!</b>
           </p>
-          {/* <Modal.Actions>
-            <form method="dialog">
-              <Button className="min-w-56 normal-case  min-h-16 mt-10 bg-[#9c699b] text-[#FFFFFF] hover:text-black hover:bg-[#F4F4F4] font-bold text-2xl mr-2">
-                Close
-              </Button>
-            </form>
-          </Modal.Actions> */}
         </div>
       </Modal>
     </div>
