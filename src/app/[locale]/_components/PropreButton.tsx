@@ -11,7 +11,9 @@ type variable = {
 };
 function PropreButton({ Classcss, funct, path, Nom }: any) {
   const handleClick = () => {
-    if (path) {
+    if (path === "back") {
+      router.back();
+    } else if (path) {
       router.push(path);
     } else {
       funct();
