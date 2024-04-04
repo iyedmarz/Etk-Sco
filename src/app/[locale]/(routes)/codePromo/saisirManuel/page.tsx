@@ -18,8 +18,7 @@ export default function SaisirCodePromo({
   const t = useTranslations("page.codePromo");
   const n = useTranslations("nav");
   const [data, setData] = useState(null);
-  // const [promocode, setPromocode] = useState("");
-  let promocode: string = "";
+  const [promocode, setPromocode] = useState("");
   const refnotfound = useRef<HTMLDialogElement>(null);
   const ref = useRef<HTMLDialogElement>(null);
 
@@ -35,8 +34,7 @@ export default function SaisirCodePromo({
 
   // to get the input value from NumPad Component
   const handlePromoCode = (Input: string) => {
-    // setPromocode(Input);
-    promocode = Input;
+    setPromocode(Input);
   };
 
   console.log(promocode);

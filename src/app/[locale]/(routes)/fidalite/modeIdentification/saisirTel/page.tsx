@@ -1,18 +1,23 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+"use client";
 import { useTranslations } from "next-intl";
 import DiffFid from "@/_components/diffFidalite/diffFidalite";
 import Numpad from "@/_components/NumPad/NumPad";
 import PropreButton from "@/_components/PropreButton";
+import { useState } from "react";
 
 export default function saisirManuel({
   params: { locale },
 }: {
   params: { locale: string };
 }) {
+  const [numTel, setNumTel] = useState("");
   const t = useTranslations("page.saisieMan");
   const n = useTranslations("nav");
 
-  const handleClientTel = () => {};
+  const handleClientTel = (Input: string) => {
+    setNumTel(Input);
+  };
 
   return (
     <div className="flex justify-center items-center flex-col">
@@ -21,7 +26,7 @@ export default function saisirManuel({
       <div className="flex flex-row">
         <PropreButton
           Classcss="min-w-56 normal-case min-h-16 mt-5 bg-[#F4F4F4] text-[#4E4E4E] hover:bg-[#9C699B] font-bold text-2xl mr-2"
-          path="back"
+          path={"back"}
           Nom={n("backBut")}
         />
         <PropreButton
