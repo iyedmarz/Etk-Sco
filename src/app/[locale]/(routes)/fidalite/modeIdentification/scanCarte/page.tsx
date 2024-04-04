@@ -1,5 +1,3 @@
-"use client";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 import PropreButton from "@/_components/PropreButton";
 import DiffFid from "@/_components/diffFidalite/diffFidalite";
@@ -11,7 +9,6 @@ export default function ScanCarte({
 }: {
   params: { locale: string };
 }) {
-  const router = useRouter();
   const t = useTranslations("page.modeIdentification");
   const n = useTranslations("nav");
 
@@ -28,7 +25,7 @@ export default function ScanCarte({
       <div className="flex flex-row">
         <PropreButton
           Classcss="min-w-56 normal-case min-h-16 mt-6 bg-[#F4F4F4] text-[#4E4E4E] hover:bg-[#9C699B] font-bold text-2xl mr-2"
-          funct={() => router.back()}
+          path={"back"}
           Nom={n("backBut")}
         />
         <PropreButton
