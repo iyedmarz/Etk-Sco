@@ -4,8 +4,8 @@ import { Check } from "lucide-react";
 import { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import { useRouter } from "next/navigation";
-import DiffFid from "../../_components/diffFidalite/diffFidalite";
-import PropreButton from "../../_components/PropreButton";
+import DiffFid from "@/_components/diffFidalite/diffFidalite";
+import PropreButton from "@/_components/PropreButton";
 import { useTranslations } from "next-intl";
 
 export default function Fidalité({

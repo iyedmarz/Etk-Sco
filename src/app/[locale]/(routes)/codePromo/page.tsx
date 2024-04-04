@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import PropreButton from "../../_components/PropreButton";
-import Promo from "../../../../../public/BigPromo.png";
+import PropreButton from "@/_components/PropreButton";
+import Promo from "@/assets/BigPromo.png";
 
 export default function CodePromo({
   params: { locale },

@@ -3,10 +3,10 @@ import { IconButton } from "@mui/material";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import DiffFid from "../../../_components/diffFidalite/diffFidalite";
-import PropreButton from "../../../_components/PropreButton";
-import scannerCarte from "../../../../../../public/Scannercarte.png";
-import numTel from "../../../../../../public/telnumero.png";
+import DiffFid from "@/_components/diffFidalite/diffFidalite";
+import PropreButton from "@/_components/PropreButton";
+import scannerCarte from "@/assets/PropreScannercarte.png";
+import numTel from "@/assets/telnumero.png";
 import { useTranslations } from "next-intl";
 
 export default function Fidalité({

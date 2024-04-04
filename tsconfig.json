@@ -18,9 +18,17 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@/assets/*": ["./public/assets/*"],
+      "@/_components/*": ["./src/app/[locale]/_components/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/[locale]/_components/LocaleSwitcher.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/[locale]/_components/LocaleSwitcher.tsx"
+  ],
   "exclude": ["node_modules"]
 }

@@ -1,12 +1,12 @@
 "use client";
-import DiffFid from "../../../_components/diffFidalite/diffFidalite";
 import { IconButton } from "@mui/material";
 import { Check } from "lucide-react";
 import { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import { useRouter } from "next/navigation";
-import Total from "../../../_components/TotalCommande";
 import { useTranslations } from "next-intl";
+import DiffFid from "@/_components/diffFidalite/diffFidalite";
+import Total from "@/_components/TotalCommande";
 
 export default function Fidalité({
   params: { locale },

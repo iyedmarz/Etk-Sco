@@ -3,9 +3,10 @@ import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useState, useCallback, useRef } from "react";
 import { Button, Modal } from "react-daisyui";
-import PropreButton from "../../../_components/PropreButton";
-import SaisirNum from "../../../_components/SaisirNumero/SaisirNum";
-import NumPad from "../../../_components/NumPad/NumPad";
+import React from "react";
+import PropreButton from "@/_components/PropreButton";
+import SaisirNum from "@/_components/SaisirNumero/SaisirNum";
+import NumPad from "@/_components/NumPad/NumPad";
 import "./modals.css";
 
 export default function SaisirCodePromo({
@@ -17,7 +18,8 @@ export default function SaisirCodePromo({
   const t = useTranslations("page.codePromo");
   const n = useTranslations("nav");
   const [data, setData] = useState(null);
-  const [promocode, setPromocode] = useState("");
+  // const [promocode, setPromocode] = useState("");
+  let promocode: string = "";
   const refnotfound = useRef<HTMLDialogElement>(null);
   const ref = useRef<HTMLDialogElement>(null);
 
@@ -33,7 +35,8 @@ export default function SaisirCodePromo({
 
   // to get the input value from NumPad Component
   const handlePromoCode = (Input: string) => {
-    setPromocode(Input);
+    // setPromocode(Input);
+    promocode = Input;
   };
 
   console.log(promocode);

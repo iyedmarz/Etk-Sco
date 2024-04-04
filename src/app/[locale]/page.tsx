@@ -17,7 +17,7 @@ export default function Home({
     );
     router.push(newPathname);
   };
-  
+
   return (
     <div className="video-container">
       <div className="langSwitcher">

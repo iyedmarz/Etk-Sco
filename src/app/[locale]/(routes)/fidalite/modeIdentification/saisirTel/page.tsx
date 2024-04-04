@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import DiffFid from "../../../../_components/diffFidalite/diffFidalite";
-import Numpad from "./../../../../_components/NumPad/NumPad";
-import PropreButton from "../../../../_components/PropreButton";
 import { useTranslations } from "next-intl";
+import DiffFid from "@/_components/diffFidalite/diffFidalite";
+import Numpad from "@/_components/NumPad/NumPad";
+import PropreButton from "@/_components/PropreButton";
 
 export default function saisirManuel({
   params: { locale },

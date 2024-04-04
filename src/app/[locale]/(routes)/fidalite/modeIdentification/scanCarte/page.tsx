@@ -1,9 +1,9 @@
 "use client";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import PropreButton from "../../../../_components/PropreButton";
-import DiffFid from "../../../../_components/diffFidalite/diffFidalite";
-import ScanCarteImg from "./../../../../../../../public/Scannercarte.png";
+import PropreButton from "@/_components/PropreButton";
+import DiffFid from "@/_components/diffFidalite/diffFidalite";
+import ScanCarteImg from "@/assets/Scannercarte.png";
 import { useTranslations } from "next-intl";
 
 export default function ScanCarte({

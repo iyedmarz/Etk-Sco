@@ -1,11 +1,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import { useRouter } from "next/navigation";
-import PropreButton from "../../../../../_components/PropreButton";
-import DiffFid from "../../../../../_components/diffFidalite/diffFidalite";
-import Numpad from "./../../../../../_components/NumPad/NumPad";
+import PropreButton from "@/_components/PropreButton";
+import DiffFid from "@/_components/diffFidalite/diffFidalite";
+import Numpad from "@/_components/NumPad/NumPad";
 import { useTranslations } from "next-intl";
-import { IsNull } from "typeorm";
 
 export default function saisirManuel({
   params: { locale },

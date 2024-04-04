@@ -2,15 +2,15 @@
 import { IconButton } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import Image from "next/image";
-import Abientot from "../../_components/_modal/cancel/cancel";
-import Total from "../../_components/TotalCommande";
-import PropreButton from "../../_components/PropreButton";
-import especeImg from "./../../../../../public/especes.png";
-import carteBankImg from "./../../../../../public/cartebancaire.png";
-import caisseImg from "./../../../../../public/caisse.png";
-import autreImg from "./../../../../../public/autres.png";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
+import Abientot from "@/_components/_modal/cancel/cancel";
+import Total from "@/_components/TotalCommande";
+import PropreButton from "@/_components/PropreButton";
+import especeImg from "@/assets/especes.png";
+import carteBankImg from "@/assets/cartebancaire.png";
+import caisseImg from "@/assets/caisse.png";
+import autreImg from "@/assets/autres.png";
 
 export default function Payement({
   params: { locale },
