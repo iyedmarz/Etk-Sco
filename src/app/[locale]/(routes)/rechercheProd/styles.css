@@ -1,0 +1,23 @@
+/* Override default styles of Carousel */
+
+/* Hide pagination dots */
+.rec .rec-pagination {
+  display: none;
+}
+
+/* Change button color */
+.rec .rec-arrow {
+  border: 0px;
+  color: #ffffff; /* Text color */
+  background-color: #dddddd; /* Change to your desired hover color */
+}
+
+.rec .rec-arrow:hover:not(disabled) {
+  background-color: #9c699b; /* Change to your desired hover color */
+}
+
+/* Optional: Hover styles for buttons */
+.rec .rec-arrow:hover:disabled {
+  background-color: #dddddd; /* Change to your desired hover color */
+}
+
