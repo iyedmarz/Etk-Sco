@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import BarcodeScanner from "../../../_components/BarcodeReader";
+import BarcodeScanner from "@/_components/BarcodeReader";
 import "./table.css";
 
 type Product = {
