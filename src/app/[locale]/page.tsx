@@ -27,7 +27,7 @@ export default function Home({
       </div>
       <button onClick={() => router.push(`/${locale}/checkout`)}>
         <video autoPlay loop muted>
-          <source src="ETK.mp4" type="video/mp4" />
+          <source src="assets/ETK.mp4" type="video/mp4" />
         </video>
       </button>
     </div>
