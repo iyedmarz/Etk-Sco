@@ -2,7 +2,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import Aures from "../../../../../../public/auresModel.png";
+import Aures from "@/assets/auresModel.png";
 import "./Assist.css";
 
 const Assist = ({

@@ -1,5 +1,4 @@
-// describe's used in "solde" and payment Pages
-
+// describe's total and rest to pay or # used in "solde" and payment Pages
 import { useTranslations } from "next-intl";
 
 function Total({ value }: any) {

@@ -1,11 +1,9 @@
 import Image from "next/image";
 import "./navbar.css";
-import assistance from "../../../../../public/assistance.png";
-import AuresKonnect from "../../../../../public/Aures.png";
+import assistance from "@/assets/assistance.png";
+import AuresKonnect from "@/assets/Aures.png";
 
 export default function Navbar() {
-  
-
   return (
     <header className="headercontainer">
       <div className="container1">

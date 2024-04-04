@@ -2,8 +2,8 @@ import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import Aures from "../../../../../../public/auresModel.png";
-import ABientot from "../../../../../../public/Abientot.png";
+import Aures from "@/assets/auresModel.png";
+import ABientot from "@/assets/Abientot.png";
 import "./cancel.css";
 
 const Abientot = ({ isvisible }: { isvisible: boolean }) => {
