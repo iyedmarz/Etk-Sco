@@ -1,6 +1,6 @@
 import React from "react";
-import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
+import Led from "@/_components/LedControl";
 import Image from "next/image";
 import Aures from "@/assets/auresModel.png";
 import "./Assist.css";
@@ -12,12 +12,14 @@ const Assist = ({
   isvisible: boolean;
   onClose: () => void;
 }) => {
-  const router = useRouter();
   const t = useTranslations("page.checkout.assistModal");
 
+  /* Close pop up after 10s */
   setTimeout(() => {
     onClose();
-  }, 5000);
+    /* Turn OFF Orange led Light */
+    Led({ state: "off", color: "orange" });
+  }, 10000);
 
   if (!isvisible) return null;
 

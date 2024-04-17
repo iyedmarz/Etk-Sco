@@ -6,13 +6,13 @@ import Image from "next/image";
 import Abientot from "@/_components/_modal/cancel/cancel";
 import Assist from "@/_components/_modal/Assistance/Assist";
 import Cart from "./Cart/cart";
+import Led from "@/_components/LedControl";
 import promo from "@/assets/codePromoIcon.svg";
 import assistImg from "@/assets/assistIcon.svg";
 import cancelImg from "@/assets/CancelIcon.svg";
 import supprimer from "@/assets/deleteIcon.svg";
 import manager from "@/assets/managerIcon.svg";
 import search from "@/assets/searchIcon.svg";
-
 import "./checkout.css";
 
 export default function Checkout({
@@ -24,6 +24,8 @@ export default function Checkout({
   const [abientot, setAbientot] = useState(false);
   const [assist, setAssist] = useState(false);
   const t = useTranslations("page.checkout");
+
+  /* to close Assist pop up*/
   const handleCloseAssist = () => {
     setAssist(false);
   };
@@ -43,7 +45,14 @@ export default function Checkout({
             <Image src={promo} alt="" height={50} width={50} />
             <p>{t("promoBut")} </p>
           </button>
-          <button className="but" id="" onClick={() => setAssist(true)}>
+          <button
+            className="but"
+            id=""
+            onClick={() => {
+              setAssist(true); //turning on orange light to indcate that client need assistance
+              Led({ state: "on", color: "orange" });
+            }}
+          >
             <Image src={assistImg} alt="" height={50} width={50} />
             <p>{t("assistBut")}</p>
           </button>
