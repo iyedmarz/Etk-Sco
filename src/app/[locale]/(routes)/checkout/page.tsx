@@ -64,12 +64,12 @@ export default function Checkout({
             <Image src={supprimer} alt="" height={40} width={40} />
             <p>{t("deleteBut")}</p>
           </button>
-          <button className="but" id="">
+          {/* <button className="but" id="">
             <Image src={manager} alt="" height={45} width={45} />
             <p>{t("managerBut")}</p>
-          </button>
+          </button> */}
           <button
-            className="but"
+            className="but span-2"
             id=""
             onClick={() => {
               router.push(`/${locale}/rechercheProd`);
