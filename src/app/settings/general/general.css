@@ -1,0 +1,23 @@
+.ecran-items {
+    display: grid;
+    grid-template-columns: 26% 15% 20% 40%;
+    margin: 5px 0px 20px;
+}
+
+.temps-items {
+    display: grid;
+    grid-template-columns: 85% 15%;
+    margin: 5px 0px 5px;
+}
+
+.aide-items {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 5px 0px 20px;
+}
+
+.led-items {
+    display: grid;
+    grid-template-columns: 25% 15% 30% 30%;
+    margin: 5px 0px 15px;
+}
