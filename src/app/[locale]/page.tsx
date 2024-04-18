@@ -57,8 +57,8 @@ export default function Home({
       >
         <div className="w-[95%] h-[95%] bg-white p-[1rem] rounded-2xl flex justify-between items-center flex-col">
           <Image src={Aures} alt="" />
-          <div className="text-3xl">Superviseur Sign In</div>
-          <NumPad placeholder="password" onInput={handlePass} />
+          <div className="text-3xl">Connexion du Superviseur</div>
+          <NumPad placeholder="Entrer votre Code" onInput={handlePass} />
           <Modal.Actions className="flex flex-row">
             <form method="dialog">
               <Button className="min-w-56 normal-case  min-h-16 mt-10 bg-[#9c699b] text-[#FFFFFF] hover:text-black hover:bg-[#F4F4F4] font-bold text-2xl mr-2">
