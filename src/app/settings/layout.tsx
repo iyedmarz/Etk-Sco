@@ -25,15 +25,30 @@ export default function SettingsLayout({
             </div>
           </div>
         </header>
-        <div className="grid grid-cols-4">
-          <button className="border border-black p-1 font-bold">Général</button>
+        <div className="setting-paths grid grid-cols-3">
+          <Link
+            href="/settings/general"
+            className="border border-black p-1 font-bold text-center"
+          >
+            Géneral
+          </Link>
           {/* <button className="border border-black p-1 font-bold font-bold">Encaissement</button> */}
-          <button className="border border-black p-1 font-bold">Design</button>
+          <Link
+            href="/settings/design"
+            className="border border-black p-1 font-bold text-center"
+          >
+            Design
+          </Link>
           {/* <button className="border border-black p-1 font-bold">Monnayeur</button> */}
-          <button className="border border-black p-1 font-bold">
+          {/* <button className="border border-black p-1 font-bold">
             Imprimante
-          </button>
-          <button className="border border-black p-1 font-bold">Options</button>
+          </button> */}
+          <Link
+            href="/settings/options"
+            className="border border-black p-1 font-bold text-center"
+          >
+            Options
+          </Link>
         </div>
         {children}
         <footer className="fixed bottom-0 w-[100%] bg-[black] flex">
