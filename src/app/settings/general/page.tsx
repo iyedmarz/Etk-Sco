@@ -1,9 +1,43 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+"use client";
 import React, { useState } from "react";
 import Switch from "@/_components/Switch";
 import Reglement from "./reglement";
 import "./general.css";
 
 export default function generalSettings() {
+  // ****** Ecran General Settings ******
+
+  // ** show "ecran publicitaire"  oui: choose image or video : Logo
+  const [ecranPub, setEcranPub] = useState(true);
+
+  const handleEcranPubChange = (
+    checked: boolean | ((prevState: boolean) => boolean)
+  ) => {
+    setEcranPub(checked);
+    console.log(`Switch ecranPub checked: ${ecranPub} `);
+  };
+
+  // ** show "logo" in place of "ecran publicitaire"  oui: choose Logo : ecran pub
+  const [logoPub, setLogoPub] = useState(false);
+
+  const handleLogoPubChange = (
+    checked: boolean | ((prevState: boolean) => boolean)
+  ) => {
+    setLogoPub(checked);
+    console.log(`Switch logo checked: ${logoPub}`);
+  };
+
+  // ** Multilingue YES/NO
+  const [multiLang, setMultiLang] = useState(false);
+
+  const handleMultiLangChange = (
+    checked: boolean | ((prevState: boolean) => boolean)
+  ) => {
+    setMultiLang(checked);
+    console.log(`Switch multiLang checked: ${multiLang}`);
+  };
+
   return (
     <div className="grid grid-cols-2">
       <div className="m-1">
@@ -11,7 +45,11 @@ export default function generalSettings() {
           <legend className="font-bold mx-4 px-8">Ecran D&apos;accueil</legend>
           <div className="ecran-items">
             <div>Ecran publicitaire</div>
-            <Switch />
+            <Switch
+              id="general"
+              checked={ecranPub}
+              onchange={handleEcranPubChange}
+            />
             <div>Image, video</div>
             <div className="grid grid-cols-2">
               <input
@@ -26,7 +64,11 @@ export default function generalSettings() {
           </div>
           <div className="ecran-items">
             <div>Logo</div>
-            <Switch />
+            <Switch
+              id="logo"
+              checked={logoPub}
+              onchange={handleLogoPubChange}
+            />
             <div>Logo</div>
             <div className="grid grid-cols-2">
               <input
@@ -41,7 +83,11 @@ export default function generalSettings() {
           </div>
           <div className="ecran-items">
             <div>Multilingue</div>
-            <Switch />
+            <Switch
+              id="general"
+              checked={multiLang}
+              onchange={handleMultiLangChange}
+            />
             <div>Par défaut</div>
           </div>
         </fieldset>
@@ -62,11 +108,11 @@ export default function generalSettings() {
           <legend className="font-bold mx-4 px-8">Message D&apos;aide</legend>
           <div className="aide-items">
             <div>Message d&apos;aide</div>
-            <Switch />
+            <Switch id="general" value={ecranPub} />
           </div>
           <div className="aide-items">
             <div>Sonnerie d&apos;alerte avec le message</div>
-            <Switch />
+            <Switch id="general" value={ecranPub} />
           </div>
           <div className="aide-items">
             <form className="flex justify-center">
