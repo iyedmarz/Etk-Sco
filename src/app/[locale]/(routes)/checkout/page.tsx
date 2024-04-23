@@ -14,6 +14,12 @@ import supprimer from "@/assets/deleteIcon.svg";
 import manager from "@/assets/managerIcon.svg";
 import search from "@/assets/searchIcon.svg";
 import "./checkout.css";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../_redux/store";
+import {
+  setSelectedImage,
+  toggleDisplayImage,
+} from "@/app/_redux/designSettingsSlice";
 
 export default function Checkout({
   params: { locale },
@@ -30,10 +36,38 @@ export default function Checkout({
     setAssist(false);
   };
 
+  const { displayPubImage, selectedImage } = useSelector(
+    (state: RootState) => state.designsettings
+  );
+
+  let content = null;
+  console.log(displayPubImage);
+  switch (displayPubImage) {
+    case "article":
+      content = <div> article image </div>;
+      break;
+    case "imagePub":
+      content = <Image src={selectedImage} alt="" height={300} width={300} />;
+      break;
+    case "logo":
+      content = (
+        <Image
+          src={selectedImage ? URL.createObjectURL(selectedImage) : ""}
+          alt=""
+          height={50}
+          width={50}
+        />
+      );
+      break;
+    default:
+      content = null;
+      break;
+  }
+
   return (
     <div className="checkoutContainer">
       <div className="screenButtons">
-        <div className="screen"></div>
+        <div className="screen flex justify-center items-center">{content}</div>
         <div className="buttons">
           <button
             className="but"
@@ -87,4 +121,7 @@ export default function Checkout({
       <Assist isvisible={assist} onClose={handleCloseAssist} />
     </div>
   );
+}
+function dispatch(arg0: any) {
+  throw new Error("Function not implemented.");
 }
