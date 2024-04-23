@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import BarcodeScanner from "@/_components/BarcodeReader";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, removeFromCart } from "../../../../_redux/cartSlice";
+import { RootState, AppDispatch } from "../../../../_redux/store";
+
 import "./table.css";
 
 type Product = {
@@ -15,26 +19,29 @@ const Products = ({ locale }: { locale: string }) => {
   const router = useRouter();
   const t = useTranslations("page.checkout");
   const [selectedRows, setSelectedRows] = useState<number[]>([]);
-  let [cart, setCart] = useState<Product[]>([]);
+  // let [cart, setCart] = useState<Product[]>([]);
   let total: number = 0;
+  const dispatch: AppDispatch = useDispatch();
+  const cartItems = useSelector((state: RootState) => state.cart);
 
   const fetchData = async (barcode: string) => {
     try {
       const response = await fetch(`http://localhost:5000/product/${barcode}`);
       const responseData = await response.json();
-      const existingProductIndex = cart.findIndex(
-        (product) => product.barcode === responseData.barcode
-      );
-      if (existingProductIndex !== -1) {
-        // If product already exists in cart, update its quantity
-        const updatedCart = [...cart];
-        updatedCart[existingProductIndex].quantity += 1;
-        setCart(updatedCart);
-      } else {
-        // If product doesn't exist in cart, add it to cart
-        responseData.quantity = 1;
-        setCart([...cart, responseData]);
-      }
+      dispatch(addToCart(responseData));
+      // const existingProductIndex = cart.findIndex(
+      //   (product) => product.barcode === responseData.barcode
+      // );
+      // if (existingProductIndex !== -1) {
+      //   // If product already exists in cart, update its quantity
+      //   const updatedCart = [...cart];
+      //   updatedCart[existingProductIndex].quantity += 1;
+      //   setCart(updatedCart);
+      // } else {
+      //   // If product doesn't exist in cart, add it to cart
+      //   responseData.quantity = 1;
+      //   setCart([...cart, responseData]);
+      // }
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -57,6 +64,8 @@ const Products = ({ locale }: { locale: string }) => {
     setSelectedRows(newSelectedRows);
   };
 
+  console.log("selected rows:", selectedRows);
+
   const Montant = (prod: Product) => {
     const montant = prod.price * prod.quantity;
     total = total + montant;
@@ -75,7 +84,7 @@ const Products = ({ locale }: { locale: string }) => {
                 <th>{t("cart.quantity")}</th>
                 <th>{t("cart.montant")}</th>
               </tr>
-              {cart.map((product, index) => (
+              {cartItems.map((product, index) => (
                 <tr
                   key={product.barcode}
                   className={`border-b-2 ${
