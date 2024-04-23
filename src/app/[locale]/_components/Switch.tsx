@@ -12,26 +12,20 @@ const customTheme = {
   },
 };
 
-const SwitchYN = () => {
+const SwitchYN = ({ id, checked, onchange }: any) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [isChecked, setIsChecked] = useState(false);
 
-  const handleSwitchChange = (
-    checked: boolean | ((prevState: boolean) => boolean)
-  ) => {
-    setIsChecked(checked);
-    console.log(`Switch checked: ${checked}`);
-  };
   return (
     <div className="flex justify-center items-center">
       <ConfigProvider theme={customTheme}>
         <Switch
-          checked={isChecked}
-          onChange={handleSwitchChange}
+          id={id}
+          checked={checked}
+          onChange={onchange}
           checkedChildren="Oui"
           unCheckedChildren="Non"
           style={
-            isChecked
+            checked
               ? {
                   backgroundColor: customTheme.components.Switch.colorPrimary,
                 }
