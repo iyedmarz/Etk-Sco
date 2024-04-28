@@ -21,7 +21,8 @@
       "@/*": ["./src/*"],
       "@/public/*": ["./public/*"],
       "@/assets/*": ["./public/assets/*"],
-      "@/_components/*": ["./src/app/[locale]/_components/*"]
+      "@/_components/*": ["./src/app/[locale]/_components/*"],
+      "@/_redux/*": ["./src/app/_redux/*"]
     }
   },
   "include": [
@@ -31,5 +32,5 @@
     ".next/types/**/*.ts",
     "src/app/[locale]/_components/LocaleSwitcher.tsx"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "src-tauri"]
 }
