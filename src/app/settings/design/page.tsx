@@ -3,14 +3,14 @@ import React, { useState } from "react";
 import Switch from "@/_components/Switch";
 import "./general.css";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState, AppDispatch } from "@/app/_redux/store";
+import { RootState, AppDispatch } from "@/_redux/store";
 import {
   toggleDisplayImage,
   setSelectedImage,
   setAffArticleSwitch,
   setImagePubSwitch,
   setLogoSwitch,
-} from "../../_redux/designSettingsSlice";
+} from "@/_redux/designSettingsSlice";
 
 export default function DesignSettings() {
   const { affArticleSwitch, imagePubSwitch, logoSwitch } = useSelector(
@@ -19,25 +19,38 @@ export default function DesignSettings() {
   const dispatch: AppDispatch = useDispatch();
 
   const [affArticle, setaffArticle] = useState<boolean>(affArticleSwitch);
+  console.log(affArticleSwitch);
   const [imagePub, setImagePub] = useState<boolean>(imagePubSwitch);
   const [logo, setLogo] = useState<boolean>(logoSwitch);
 
   const handleAffArticleSwitch = () => {
-    setaffArticle(!affArticleSwitch);
     dispatch(setAffArticleSwitch());
-    dispatch(toggleDisplayImage("article"));
+    setaffArticle(!affArticleSwitch);
+    if (!affArticleSwitch) {
+      dispatch(toggleDisplayImage("article"));
+    } else {
+      dispatch(toggleDisplayImage(null));
+    }
   };
 
   const handleImagePubSwitch = () => {
     setImagePub(!imagePubSwitch);
     dispatch(setImagePubSwitch());
-    dispatch(toggleDisplayImage("imagePub"));
+    if (!imagePubSwitch) {
+      dispatch(toggleDisplayImage("imagePub"));
+    } else {
+      dispatch(toggleDisplayImage(null));
+    }
   };
 
   const handleLogoSwitch = () => {
-    setLogo(!logo);
+    setLogo(!logoSwitch);
     dispatch(setLogoSwitch());
-    dispatch(toggleDisplayImage("logo"));
+    if (!logoSwitch) {
+      dispatch(toggleDisplayImage("logo"));
+    } else {
+      dispatch(toggleDisplayImage(null));
+    }
   };
   return (
     <div className="m-5">
