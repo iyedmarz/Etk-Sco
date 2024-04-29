@@ -5,15 +5,20 @@ import { useTranslations } from "next-intl";
 import Aures from "@/assets/auresModel.png";
 import ABientot from "@/assets/Abientot.png";
 import "./cancel.css";
+import { clearCart } from "@/app/_redux/cartSlice";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/app/_redux/store";
 
 const Abientot = ({ isvisible }: { isvisible: boolean }) => {
   const router = useRouter();
   const t = useTranslations("page.checkout.cancelModal");
+  const dispatch: AppDispatch = useDispatch();
 
   if (!isvisible) return null;
 
   setTimeout(() => {
     router.push("/");
+    dispatch(clearCart());
   }, 5000);
 
   return (
