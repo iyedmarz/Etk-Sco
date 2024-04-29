@@ -11,15 +11,12 @@ import promo from "@/assets/codePromoIcon.svg";
 import assistImg from "@/assets/assistIcon.svg";
 import cancelImg from "@/assets/CancelIcon.svg";
 import supprimer from "@/assets/deleteIcon.svg";
-import manager from "@/assets/managerIcon.svg";
+// import manager from "@/assets/managerIcon.svg";
 import search from "@/assets/searchIcon.svg";
 import "./checkout.css";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../_redux/store";
-import {
-  setSelectedImage,
-  toggleDisplayImage,
-} from "@/app/_redux/designSettingsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/_redux/store";
+import { removeFromCart } from "@/_redux/cartSlice";
 
 export default function Checkout({
   params: { locale },
@@ -30,6 +27,7 @@ export default function Checkout({
   const [abientot, setAbientot] = useState(false);
   const [assist, setAssist] = useState(false);
   const t = useTranslations("page.checkout");
+  const dispatch: AppDispatch = useDispatch();
 
   /* to close Assist pop up*/
   const handleCloseAssist = () => {
@@ -94,7 +92,14 @@ export default function Checkout({
             <Image src={cancelImg} alt="" height={50} width={50} />
             <p>{t("cancelBut")}</p>
           </button>
-          <button className="but" id="">
+          <button
+            className="but"
+            id=""
+            onClick={() => {
+              console.log("clicked");
+              dispatch(removeFromCart());
+            }}
+          >
             <Image src={supprimer} alt="" height={40} width={40} />
             <p>{t("deleteBut")}</p>
           </button>
@@ -121,7 +126,4 @@ export default function Checkout({
       <Assist isvisible={assist} onClose={handleCloseAssist} />
     </div>
   );
-}
-function dispatch(arg0: any) {
-  throw new Error("Function not implemented.");
 }

@@ -1,47 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import BarcodeScanner from "@/_components/BarcodeReader";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, removeFromCart } from "../../../../_redux/cartSlice";
-import { RootState, AppDispatch } from "../../../../_redux/store";
-
+import { addToCart, handleSelectedRows } from "@/_redux/cartSlice";
+import { RootState, AppDispatch } from "@/_redux/store";
 import "./table.css";
 
-type Product = {
-  barcode: string;
-  name: string;
-  price: number;
-  quantity: number;
-};
-
-const Products = ({ locale }: { locale: string }) => {
+const Cart = ({ locale }: { locale: string }) => {
   const router = useRouter();
   const t = useTranslations("page.checkout");
-  const [selectedRows, setSelectedRows] = useState<number[]>([]);
-  // let [cart, setCart] = useState<Product[]>([]);
-  let total: number = 0;
   const dispatch: AppDispatch = useDispatch();
-  const cartItems = useSelector((state: RootState) => state.cart);
+  const cartItems = useSelector((state: RootState) => state.cart.items);
+  const { totalPrice, selectedRows } = useSelector(
+    (state: RootState) => state.cart
+  );
+  // const [selectedRows, setSelectedRows] = useState<string[]>([]);
 
   const fetchData = async (barcode: string) => {
     try {
       const response = await fetch(`http://localhost:5000/product/${barcode}`);
       const responseData = await response.json();
       dispatch(addToCart(responseData));
-      // const existingProductIndex = cart.findIndex(
-      //   (product) => product.barcode === responseData.barcode
-      // );
-      // if (existingProductIndex !== -1) {
-      //   // If product already exists in cart, update its quantity
-      //   const updatedCart = [...cart];
-      //   updatedCart[existingProductIndex].quantity += 1;
-      //   setCart(updatedCart);
-      // } else {
-      //   // If product doesn't exist in cart, add it to cart
-      //   responseData.quantity = 1;
-      //   setCart([...cart, responseData]);
-      // }
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -52,25 +32,38 @@ const Products = ({ locale }: { locale: string }) => {
     fetchData(barcode);
   };
 
-  const handleClick = (index: number) => {
-    const selectedIndex = selectedRows.indexOf(index);
-    let newSelectedRows: number[] = [];
-    if (selectedIndex === -1) {
-      newSelectedRows = [...selectedRows, index];
-    } else {
-      newSelectedRows = selectedRows.filter((rowIndex) => rowIndex !== index);
-    }
+  // const handleSelectedRows = (index: number) => {
+  //   const selectedIndex = selectedRows.indexOf(index);
+  //   let newSelectedRows: number[] = [];
+  //   if (selectedIndex === -1) {
+  //     newSelectedRows = [...selectedRows, index];
+  //   } else {
+  //     newSelectedRows = selectedRows.filter((rowIndex) => rowIndex !== index);
+  //   }
 
-    setSelectedRows(newSelectedRows);
-  };
+  //   setSelectedRows(newSelectedRows);
+  // };
 
-  console.log("selected rows:", selectedRows);
+  // const handleSelectedRows = (barcode: string) => { // ** Done using redux to check on monday
+  //   const selectedbarcode = selectedRows.indexOf(barcode);
+  //   let newSelectedRows: string[] = [];
+  //   if (selectedbarcode === -1) {
+  //     newSelectedRows = [...selectedRows, barcode];
+  //   } else {
+  //     newSelectedRows = selectedRows.filter(
+  //       (rowbarcode) => rowbarcode !== barcode
+  //     );
+  //   }
+  //   setSelectedRows(newSelectedRows);
+  // };
 
-  const Montant = (prod: Product) => {
-    const montant = prod.price * prod.quantity;
-    total = total + montant;
-    return montant;
-  };
+  // console.log("selected rows:", selectedRows);
+
+  // const Montant = (prod: Product) => {
+  //   const montant = prod.price * prod.quantity;
+  //   total = total + montant;
+  //   return montant;
+  // };
 
   return (
     <div className="checkoutRightSide">
@@ -84,20 +77,20 @@ const Products = ({ locale }: { locale: string }) => {
                 <th>{t("cart.quantity")}</th>
                 <th>{t("cart.montant")}</th>
               </tr>
-              {cartItems.map((product, index) => (
+              {cartItems.map((product) => (
                 <tr
                   key={product.barcode}
                   className={`border-b-2 ${
-                    selectedRows.includes(index) ? "selected" : ""
-                  }`}
+                    selectedRows.includes(product.barcode) ? "selected" : ""
+                  }`} // selectedRows.includes(index)
                   onClick={() => {
-                    handleClick(index);
+                    dispatch(handleSelectedRows(product.barcode));
                   }}
                 >
                   <td className="text-left font-bold pl-5">{product.name}</td>
                   <td>{product.price}€</td>
                   <td>{product.quantity}</td>
-                  <td>{Montant(product)}€</td>
+                  <td>{product.price_quantity}€</td>
                 </tr>
               ))}
             </tbody>
@@ -109,7 +102,9 @@ const Products = ({ locale }: { locale: string }) => {
             <button></button>
           </div>
           <div className="attributesContainer">
-            <div> {t("quantity")} 0</div>
+            <div>
+              {t("quantity")} {cartItems.length}
+            </div>
             <div> {t("remise")} 0€</div>
             <div> {t("TTC")} 0€</div>
           </div>
@@ -122,7 +117,7 @@ const Products = ({ locale }: { locale: string }) => {
           onClick={() => router.push(`/${locale}/fidalite`)}
         >
           <p>{t("payBut")}</p>
-          <p>{total}€</p>
+          <p>{totalPrice}€</p>
         </button>
       </div>
       <BarcodeScanner onBarcodeScan={handleBarcodeScan} />
@@ -130,4 +125,4 @@ const Products = ({ locale }: { locale: string }) => {
   );
 };
 
-export default Products;
+export default Cart;
