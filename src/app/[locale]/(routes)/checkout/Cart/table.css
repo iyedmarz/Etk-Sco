@@ -23,7 +23,7 @@
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    padding: 8px;
+    padding: 8px 70px;
     border-top: 1px solid #E5ECF1;
 
 }
@@ -70,7 +70,7 @@ td {
     border: 1px solid #E8E8E8;
     background-color: rgba(156, 105, 155, 1);
     border-radius: 13px;
-    padding : 5px;
+    padding : 10px;
     margin: 8px 14px 0px 14px;
     display: flex;
     justify-content: space-between;

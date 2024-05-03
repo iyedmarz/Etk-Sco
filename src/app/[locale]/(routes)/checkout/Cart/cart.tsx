@@ -15,7 +15,6 @@ const Cart = ({ locale }: { locale: string }) => {
   const { totalPrice, selectedRows } = useSelector(
     (state: RootState) => state.cart
   );
-  // const [selectedRows, setSelectedRows] = useState<string[]>([]);
 
   const fetchData = async (barcode: string) => {
     try {
@@ -31,39 +30,6 @@ const Cart = ({ locale }: { locale: string }) => {
     console.log("Scanned barcode:", barcode);
     fetchData(barcode);
   };
-
-  // const handleSelectedRows = (index: number) => {
-  //   const selectedIndex = selectedRows.indexOf(index);
-  //   let newSelectedRows: number[] = [];
-  //   if (selectedIndex === -1) {
-  //     newSelectedRows = [...selectedRows, index];
-  //   } else {
-  //     newSelectedRows = selectedRows.filter((rowIndex) => rowIndex !== index);
-  //   }
-
-  //   setSelectedRows(newSelectedRows);
-  // };
-
-  // const handleSelectedRows = (barcode: string) => { // ** Done using redux to check on monday
-  //   const selectedbarcode = selectedRows.indexOf(barcode);
-  //   let newSelectedRows: string[] = [];
-  //   if (selectedbarcode === -1) {
-  //     newSelectedRows = [...selectedRows, barcode];
-  //   } else {
-  //     newSelectedRows = selectedRows.filter(
-  //       (rowbarcode) => rowbarcode !== barcode
-  //     );
-  //   }
-  //   setSelectedRows(newSelectedRows);
-  // };
-
-  // console.log("selected rows:", selectedRows);
-
-  // const Montant = (prod: Product) => {
-  //   const montant = prod.price * prod.quantity;
-  //   total = total + montant;
-  //   return montant;
-  // };
 
   return (
     <div className="checkoutRightSide">
@@ -97,16 +63,16 @@ const Cart = ({ locale }: { locale: string }) => {
           </table>
         </div>
         <div className="">
-          <div className="upDownButtons">
+          {/* <div className="upDownButtons">
             <button></button>
             <button></button>
-          </div>
+          </div> */}
           <div className="attributesContainer">
             <div>
               {t("quantity")} {cartItems.length}
             </div>
-            <div> {t("remise")} 0€</div>
-            <div> {t("TTC")} 0€</div>
+            <div> {t("remise")} 0 Dt</div>
+            {/* <div> {t("TTC")} 0 Dt</div> */}
           </div>
         </div>
       </div>
@@ -117,7 +83,7 @@ const Cart = ({ locale }: { locale: string }) => {
           onClick={() => router.push(`/${locale}/fidalite`)}
         >
           <p>{t("payBut")}</p>
-          <p>{totalPrice}€</p>
+          <p>{totalPrice} Dt</p>
         </button>
       </div>
       <BarcodeScanner onBarcodeScan={handleBarcodeScan} />

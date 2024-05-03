@@ -40,7 +40,7 @@ export default function Fidalité({
             </IconButton>
           </div>
         </Link>
-        <b>{t("payBut")} $$$$</b>
+        <b>{t("payBut")} Dt</b>
       </div>
     </div>
   );
