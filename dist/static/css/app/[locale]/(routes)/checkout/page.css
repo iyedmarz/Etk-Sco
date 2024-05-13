@@ -1,0 +1,218 @@
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[3]!./src/app/[locale]/_components/_modal/cancel/cancel.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************/
+.pop {
+    width: 80% ; /*55rem */
+    height: 80% ; /* 38.75rem */
+    background-color: white;
+    padding : 1rem;
+    border-radius: 13px;
+}
+
+.popContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titre {
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 45px;
+
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[3]!./src/app/[locale]/_components/_modal/Assistance/Assist.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************/
+.pop {
+    width: 80% ; /*55rem */
+    height: 80% ; /* 38.75rem */
+    background-color: white;
+    padding : 1rem;
+    border-radius: 13px;
+}
+
+.popContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titre {
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 45px;
+
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[3]!./src/app/[locale]/(routes)/checkout/Cart/table.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************/
+.checkoutRightSide {
+    width: 100%;
+    height: 98%;
+}
+
+.totalContainer {
+    min-height: 82%;
+    max-height: 82%;
+    margin: 14px 8px 0px 14px;
+    border: 1px solid #E8E8E8;
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between ;
+    font-size: 19px;
+    background-color: #fafafa;
+}
+
+
+
+.attributesContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 8px 70px;
+    border-top: 1px solid #E5ECF1;
+
+}
+
+.upDownButtons {
+    height: 45px;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    position: sticky;
+    top: 0px;
+    padding: 8px 12px 8px 12px;
+    background-color: #FAFAFA;
+}
+
+.selected {
+    background-color: #FAFAFA;
+}
+
+td {
+    text-align: center;
+    padding: 8px 12px 8px 12px;
+}
+
+.productsContainer {
+    width: 100%;
+    max-height: 545px; /* max-height: 545px; */
+    /* height: 80%; */
+    overflow-y: scroll;
+    border: 1px solid #FAFAFA;
+    border-radius: 13px;
+    background-color: #ffffff;
+}
+
+/* Pay button layout and css */
+
+.paybut {
+    width: 96%;
+    height: 6.125rem;
+    border: 1px solid #E8E8E8;
+    background-color: rgba(156, 105, 155, 1);
+    border-radius: 13px;
+    padding : 10px;
+    margin: 8px 14px 0px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.paybut p{
+    color: white;
+    font-size: 40px;
+}
+
+.paybut:hover {
+  background-color: rgb(156, 105, 135);
+}
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[3]!./src/app/[locale]/(routes)/checkout/checkout.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************/
+.cartpay{
+    width: 100%;
+    height:100%;
+}
+.checkoutContainer {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    min-height: 86vh;
+}
+
+/* Screen and buttons layout and css */
+
+.screenButtons {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    height: 100%;
+}
+
+.screen { 
+    margin: 14px;
+    border: 1px solid #E8E8E8;
+    border-radius: 13px;
+}
+
+.buttons {
+    display: grid ;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 33.33% 33.33% 33.33%;
+    margin-left : 11px;
+    margin-right: 11px;
+    margin-bottom: 4px;
+}
+
+
+
+.but {
+    border: 1px solid #E8E8E8;
+    margin: 6px;
+    border-radius: 13px;
+    display: flex;
+    justify-content : center;
+    align-items: center;
+    flex-direction: column;
+    padding : 5px;
+}
+
+.span-2 {
+    grid-column: span 2;
+}
+
+.but:hover {
+  background-color: #fafafa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* shadow color on hover */
+}
+
+#cancel:hover {
+    background-color: red;
+}
+
+#cancel  p {
+    color: black;
+}
+
+.but p {
+    color: #707070;
+    font-size: 20px;
+}
+
+

@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -18,11 +22,21 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"],
-      "@/public/*": ["./public/*"],
-      "@/assets/*": ["./public/assets/*"],
-      "@/_components/*": ["./src/app/[locale]/_components/*"],
-      "@/_redux/*": ["./src/app/_redux/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@/public/*": [
+        "./public/*"
+      ],
+      "@/assets/*": [
+        "./public/assets/*"
+      ],
+      "@/_components/*": [
+        "./src/app/[locale]/_components/*"
+      ],
+      "@/_redux/*": [
+        "./src/app/_redux/*"
+      ]
     }
   },
   "include": [
@@ -30,7 +44,12 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/[locale]/_components/LocaleSwitcher.tsx"
+    "src/app/[locale]/_components/LocaleSwitcher.tsx",
+    "out/types/**/*.ts",
+    "dist/types/**/*.ts"
   ],
-  "exclude": ["node_modules", "src-tauri"]
+  "exclude": [
+    "node_modules",
+    "src-tauri"
+  ]
 }

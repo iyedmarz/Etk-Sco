@@ -1,0 +1,63 @@
+/*!********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[3]!./src/app/[locale]/_components/navbar/navbar.css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************/
+header {
+  background:rgba(156, 105, 155, 1) ;
+  opacity: 1;
+  height: 6.938rem;
+  display: grid;
+  grid-template-columns: 33.33% 33.33% 33.33% ;
+}
+
+.container1 {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  margin-left: 1.5rem;
+}
+
+.container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.assistance {
+    
+  font-size: 2.75rem;
+  color: white;
+}
+
+.AuresKonnect{
+  color: white;
+  align-self: center;
+  padding-top: 2rem;
+}
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[3]!./src/app/[locale]/_components/_modal/Assistance/Assist.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************/
+.pop {
+    width: 80% ; /*55rem */
+    height: 80% ; /* 38.75rem */
+    background-color: white;
+    padding : 1rem;
+    border-radius: 13px;
+}
+
+.popContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titre {
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 45px;
+
+}
+

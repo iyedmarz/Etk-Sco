@@ -1,0 +1,65 @@
+/*!********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[3]!./src/app/[locale]/_components/NumPad/NumPad.css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************/
+.numpadcontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 24.2rem;
+  height: 24.2rem;
+  border: 1px ;
+  border-radius: 5px ;
+  box-shadow: 5px 5px 5px 5px #00000029;
+  padding: 10px;
+  margin : 0px;
+}
+
+.numInput {
+  height: 15%;
+  width: 92%;
+  margin: 10px;
+  border-bottom: 1px solid #8a8a8a;
+  text-align: center;
+  font-size: 30px;
+}
+
+.numpad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  width: 95%;
+  height: 85%;
+}
+
+.numpad button {
+  border: 1px solid #c7c7c7;
+  border-radius: 9px;
+  background-color: white;
+  font-size: 30px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.numpad button:hover {
+  background-color: #eee;
+}
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[3]!./src/app/[locale]/(routes)/codePromo/saisirManuel/modals.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************/
+.popNotFound {
+    width:60% ; /*55rem */
+    height: 50% ; /* 38.75rem */
+    background-color: white;
+    padding : 1rem;
+    border-radius: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titreNotFound {
+    margin: 5%;
+    font-size: 45px;
+}

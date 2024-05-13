@@ -1,0 +1,5 @@
+{
+  "/[locale]/(routes)/checkout/page": "app/[locale]/(routes)/checkout/page.js",
+  "/[locale]/(routes)/codePromo/saisirManuel/page": "app/[locale]/(routes)/codePromo/saisirManuel/page.js",
+  "/[locale]/(routes)/codePromo/page": "app/[locale]/(routes)/codePromo/page.js"
+}
