@@ -15,18 +15,18 @@ const Counter = () => {
   };
 
   return (
-    <div className="flex ">
+    <div className="flex justify-center items-center">
       <button
-        className="minus text-3xl border-2 solid w-[50px] h-[50px] flex justify-center items-center"
+        className="minus mx-1 text-3xl border-2 solid w-[50px] h-[50px] flex justify-center items-center"
         onClick={decrement}
       >
         -
       </button>
-      <div className="count text-2xl border-0 w-[50px] h-[50px] flex justify-center items-center">
+      <div className="count mx-1 text-2xl border-0 w-[50px] h-[50px] flex justify-center items-center">
         {count}
       </div>
       <button
-        className="plus text-3xl border-2 solid w-[50px] h-[50px] flex justify-center items-center bg-[#9c699b] text-[#ffffff] "
+        className="plus mx-1 text-3xl border-2 solid w-[50px] h-[50px] flex justify-center items-center bg-[#9c699b] text-[#ffffff] "
         onClick={increment}
       >
         +

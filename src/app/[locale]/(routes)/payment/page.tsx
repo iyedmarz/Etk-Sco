@@ -30,7 +30,7 @@ export default function Payement({
         </p>
       </div>
       <div className="m-14  flex flex-row justify-center items-center flex-initial w-64">
-        <Link href="">
+        <Link href={`/${locale}/payment/changemachine`}>
           <div className="mr-6  border-[3px]  border-[#00000029] rounded-lg drop-shadow-xl min-w-52 min-h-44 flex justify-center items-center hover:bg-gray-100 transition-colors duration-300 ">
             <IconButton className=" flex flex-col justify-center items-center hover:bg-transparent">
               <Image src={especeImg} width={100} height={200} alt="" />

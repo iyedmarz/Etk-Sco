@@ -18,7 +18,7 @@
       "cancelBut": "Cancel",
       "cancelModal": {
         "title": "thank's for your visit",
-        "gras": "see you later aligator"
+        "gras": "see you later"
       },
       "deleteBut": "Delete Item",
       "managerBut": "Manager",
@@ -43,7 +43,7 @@
     },
     "fidalite": {
       "title1": "Do you want to acces",
-      "title2": "your fidality account ?",
+      "title2": "your loyalty account ?",
       "yes": "Yes",
       "no": "No",
       "scan": "Scannez votre",
@@ -57,17 +57,17 @@
     "saisieMan": {
       "title1": "Enter the number of",
       "title2": "your fidality Card",
-      "titleTel": "your phone",
+      "titleTel": "your identity card",
       "placeHolder": "Enter your Card N°",
-      "placeHolderTel": "Enter your phone N°"
+      "placeHolderTel": "Enter your ID N°"
     },
     "modeIdentification": {
       "title1": "Please choose your",
       "title2": "identification method",
       "scanCart": "Scan your Card",
-      "saisirTel": "Write Phone N° ",
+      "saisirTel": "Write your ID N° ",
       "title3": "Scan your",
-      "title4": "fidality card",
+      "title4": "loyalty card",
       "manuelBut2": "Enter your Card N°"
     },
     "payment": {
@@ -80,7 +80,8 @@
       "aCaisse": "At the Register",
       "other": "Other",
       "title3": "Follow the instructions",
-      "title4": "of the credit card reader"
+      "title4": "of the credit card reader",
+      "title5": "of the change machine"
     }
   }
 }

@@ -24,8 +24,8 @@ export default function ScanCarte({
       />
       <div className="flex flex-row">
         <PropreButton
-          Classcss="min-w-56 normal-case min-h-16 mt-6 bg-[#F4F4F4] text-[#4E4E4E] hover:bg-[#9C699B] font-bold text-2xl mr-2"
           path={"back"}
+          Classcss="min-w-56 normal-case  min-h-16 mt-10 bg-[#ac6aac] text-[#FFFFFF] hover:text-black font-bold text-2xl mr-2"
           Nom={n("backBut")}
         />
         <PropreButton

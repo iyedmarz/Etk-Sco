@@ -42,6 +42,7 @@ export default function generalSettings() {
     <div className="grid grid-cols-2">
       <div className="m-1">
         <fieldset className="ecran-accueil border-2 py-2 px-1 my-5">
+          {/* Ecran d'accueil settings ************************************************************** */}
           <legend className="font-bold mx-4 px-8">Ecran D&apos;accueil</legend>
           <div className="ecran-items">
             <div>Ecran publicitaire</div>
@@ -88,23 +89,50 @@ export default function generalSettings() {
               checked={multiLang}
               onchange={handleMultiLangChange}
             />
-            <div>Par défaut</div>
+            <label id="lang">Par défaut :</label>
+            <select
+              id="cars"
+              name="langlist"
+              form="langform"
+              defaultValue={"Anglais"}
+            >
+              <option value="Anglais">Anglais</option>
+              <option value="Français">Français</option>
+            </select>
           </div>
         </fieldset>
         <fieldset className="temps-attente border-2 p-2 my-5">
+          {/* Temps d'attettes settings *********************************************************** */}
           <legend className="font-bold mx-4 px-8">Temps D&apos;attente</legend>
           <div className="temps-items">
             <div>
               Temps d&apos;affichages des pop-ups informatifs en secondes
             </div>
-            <div className="ml-4 border-2 rounded-md px-4 py-1">**</div>
+            <form className="flex justify-center">
+              <input
+                type="text"
+                id="tempveille"
+                name="tempveille"
+                defaultValue={10}
+                className="text-center border rounded-md w-[50px] h-[40px] border-black"
+              />
+            </form>
           </div>
           <div className="temps-items">
             <div>Temps de mise en veille en secondes</div>
-            <div className="ml-4 border-2 rounded-md px-4 py-1">**</div>
+            <form className="flex justify-center">
+              <input
+                type="text"
+                id="tempveille"
+                name="tempveille"
+                defaultValue={90}
+                className="text-center border rounded-md w-[50px] h-[40px] border-black"
+              />
+            </form>
           </div>
         </fieldset>
         <fieldset className="message_aide border-2 p-2">
+          {/* Message d'aide  ******************************************************************** */}
           <legend className="font-bold mx-4 px-8">Message D&apos;aide</legend>
           <div className="aide-items">
             <div>Message d&apos;aide</div>

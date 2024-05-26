@@ -33,13 +33,13 @@ export default function CartReader({
         <PropreButton
           Classcss="min-w-56 normal-case min-h-16 mt-10 bg-[#F4F4F4] text-[#4E4E4E] hover:bg-[#9C699B] font-bold text-2xl mr-2"
           funct={() => router.back()}
-          Nom={n("backBut")}
+          Nom={"Cancel"}
         />
-        <PropreButton
+        {/* <PropreButton
           path={`/${locale}/checkout`}
           Classcss="min-w-56 normal-case  min-h-16 mt-10 bg-[#9c699b] text-[#FFFFFF] hover:text-black font-bold text-2xl mr-2"
           Nom={n("continueBut")}
-        />
+        /> */}
       </div>
     </div>
   );

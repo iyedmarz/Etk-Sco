@@ -27,24 +27,26 @@ export default function SettingsLayout({
           </div>
         </div>
       </div>
-      <div className="setting-paths grid grid-cols-3">
+      <div className="setting-paths grid grid-cols-6">
         <Link
           href="/settings/general"
           className="border border-black p-1 font-bold text-center"
         >
           Géneral
         </Link>
-        {/* <button className="border border-black p-1 font-bold font-bold">Encaissement</button> */}
+        <button className="border border-black p-1 font-bold font-bold">
+          Encaissement
+        </button>
         <Link
           href="/settings/design"
           className="border border-black p-1 font-bold text-center"
         >
           Design
         </Link>
-        {/* <button className="border border-black p-1 font-bold">Monnayeur</button> */}
-        {/* <button className="border border-black p-1 font-bold">
-            Imprimante
-          </button> */}
+        <button className="border border-black p-1 font-bold">Monnayeur</button>
+        <button className="border border-black p-1 font-bold">
+          Imprimante
+        </button>
         <Link
           href="/settings/options"
           className="border border-black p-1 font-bold text-center"

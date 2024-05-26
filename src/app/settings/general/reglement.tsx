@@ -34,7 +34,7 @@ export default function generalSettingsReglement() {
             Ajouter
           </button>
         </div>
-        <div className="regle-items">
+        {/* <div className="regle-items">
           <div>Au Comptoire</div>
           <Switch />
           <div className="text-center">Icone</div>
@@ -42,7 +42,7 @@ export default function generalSettingsReglement() {
           <button className="mx-1  border border-[Black] rounded-md bg-[white] text-[black] hover:text-white hover:bg-[black]">
             Ajouter
           </button>
-        </div>
+        </div> */}
         <div className="regle-items">
           <div>Carte Bancaire</div>
           <Switch />
