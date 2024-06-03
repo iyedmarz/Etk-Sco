@@ -13,7 +13,14 @@ function Total({ value }: any) {
   const pathname = usePathname();
 
   let displayValue;
-  if (pathname === "/en/payment" || pathname === "/fr/payment") {
+  if (
+    pathname === "/en/payment" ||
+    pathname === "/fr/payment" ||
+    pathname === "/en/payment/changemachine" ||
+    pathname === "/fr/payment/changemachine" ||
+    pathname === "/en/payment/cartReader" ||
+    pathname === "/fr/payment/cartReader"
+  ) {
     displayValue = Intl.NumberFormat("fr-TN", {
       style: "currency",
       currency: "TND",
