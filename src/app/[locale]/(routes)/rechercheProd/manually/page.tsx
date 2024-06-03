@@ -1,14 +1,16 @@
 "use client";
 import { useTranslations } from "next-intl";
 import { RiArrowGoBackLine } from "react-icons/ri";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Counter from "@/_components/Counter";
 import search from "@/assets/searchIcon.svg";
-import Webcam from "react-webcam";
 import delice from "@/assets/delice.png";
+import Keyboard from "react-simple-keyboard";
+import "react-simple-keyboard/build/css/index.css";
 import "./../card.css";
+// import "./index.css"; // Assuming the CSS file is in the same directory
 
 interface Product {
   barcode: string;
@@ -30,6 +32,10 @@ export default function SearchProduct({
   const t = useTranslations("page.codePromo");
   const n = useTranslations("nav");
   const [products, setProducts] = useState<Product[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [layoutName, setLayoutName] = useState("default");
+  const [keyboardVisible, setKeyboardVisible] = useState(false);
+  const keyboard = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,12 +51,29 @@ export default function SearchProduct({
     fetchData();
   }, []);
 
-  console.log(products);
+  const onChange = (input: string) => {
+    setSearchQuery(input);
+    console.log("Input changed", input);
+  };
 
-  const [searchQuery, setSearchQuery] = useState("");
+  const onKeyPress = (button: string) => {
+    console.log("Button pressed", button);
+    if (button === "{shift}" || button === "{lock}") handleShift();
+    if (button === "{enter}") setKeyboardVisible(false);
+  };
 
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value);
+  const handleShift = () => {
+    setLayoutName((prevLayoutName) =>
+      prevLayoutName === "default" ? "shift" : "default"
+    );
+  };
+
+  const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const input = event.target.value;
+    setSearchQuery(input);
+    if (keyboard.current) {
+      keyboard.current.setInput(input);
+    }
   };
 
   const filteredProducts = products.filter((product) =>
@@ -75,7 +98,8 @@ export default function SearchProduct({
                 className="w-full h-full py-2 px-4 border text-center border-[#EDF1F5] rounded-3xl shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9c699b] focus:border-[#9c699b]"
                 placeholder="Search Product"
                 value={searchQuery}
-                onChange={handleSearchChange}
+                onFocus={() => setKeyboardVisible(true)}
+                onChange={onChangeInput}
               />
               <button className="absolute inset-y-0 left-0 flex items-center justify-center px-4 m-1 text-gray-700 bg-[#ffffff] border border-[#ffffff] rounded-3xl hover:bg-[#ffffff] focus:outline-none focus:ring-2 focus:ring-[#ffffff] focus:border-[#ffffff]">
                 <Image src={search} alt="" height={30} width={30} />
@@ -110,23 +134,17 @@ export default function SearchProduct({
               <Counter barcode={product.barcode} />
             </div>
           ))}
-          {/* <div className="productcardman m-2 border-2 border-solid rounded-xl w-[90%] h-[90%] border-[#EDF1F5] grid grid-rows-4 flex justify-center items-center">
-             <div className="flex justify-center items-center">
-              <Image
-                src={delice}
-                className=""
-                alt=""
-                width={100}
-                height={100}
-              />
-            </div>
-            <p className="flex justify-center items-center">Eau Delice 0.5L</p>
-            <p className="border-solid rounded-xl bg-[#EDF1F5] text-xl flex justify-center items-center">
-              0,500 DT
-            </p>
-            <Counter />
-          </div>  */}
         </div>
+        {keyboardVisible && (
+          <div className="fixed bottom-0 left-0 right-0">
+            <Keyboard
+              keyboardRef={(r) => (keyboard.current = r)}
+              layoutName={layoutName}
+              onChange={onChange}
+              onKeyPress={onKeyPress}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
