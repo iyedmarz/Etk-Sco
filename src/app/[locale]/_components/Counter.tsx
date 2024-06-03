@@ -1,17 +1,38 @@
 "use client";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart, decrementQuantity } from "@/_redux/cartSlice";
+import { AppDispatch } from "@/app/_redux/store";
 
-const Counter = () => {
+const Counter = ({ barcode }: { barcode: string }) => {
   const [count, setCount] = useState(0);
+  const dispatch: AppDispatch = useDispatch();
+  console.log(barcode);
 
-  const increment = () => {
+  const fetchData = async (barcode: string) => {
+    try {
+      console.log("here");
+      const response = await fetch(`http://localhost:5000/product/${barcode}`); //
+      const responseData = await response.json();
+      console.log(responseData);
+      dispatch(addToCart(responseData));
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  const increment = async () => {
+    await fetchData(barcode);
+    console.log("increment -->");
     setCount((prevCount) => prevCount + 1);
   };
 
   const decrement = () => {
+    console.log("decrement  <--");
     if (count != 0) {
       setCount((prevCount) => prevCount - 1);
     }
+    dispatch(decrementQuantity(barcode));
   };
 
   return (

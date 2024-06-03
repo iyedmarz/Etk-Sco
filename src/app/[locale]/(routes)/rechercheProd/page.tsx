@@ -38,8 +38,8 @@ export default function SearchProduct({
             <Webcam height={400} width={420} />
           </div>
           <div className="flex justify-center items-center">
-            {/* <div className="font-extrabold text-xl">No Product Detected</div> */}
-            <div className="productcard m-2 border-2 border-solid rounded-xl w-[300px] h-[400px] border-[#EDF1F5] grid grid-rows-4">
+            <div className="font-extrabold text-xl">No Product Detected</div>
+            {/* <div className="productcard m-2 border-2 border-solid rounded-xl w-[300px] h-[400px] border-[#EDF1F5] grid grid-rows-4">
               <div className="flex justify-center items-center">
                 <Image
                   src={delice}
@@ -49,7 +49,6 @@ export default function SearchProduct({
                   height={150}
                 />
               </div>
-              {/* <Image className="img flex justify-center items-center"></Image> */}
               <p className="flex justify-center items-center">
                 Eau Delice 0.5L
               </p>
@@ -57,7 +56,7 @@ export default function SearchProduct({
                 0,500 DT
               </p>
               <Counter />
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="flex justify-center items-center">
