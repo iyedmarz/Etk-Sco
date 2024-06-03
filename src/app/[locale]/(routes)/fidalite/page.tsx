@@ -1,3 +1,4 @@
+"use client";
 import { IconButton } from "@mui/material";
 import { Check } from "lucide-react";
 import { IoCloseSharp } from "react-icons/io5";
@@ -5,6 +6,9 @@ import DiffFid from "@/_components/diffFidalite/diffFidalite";
 import PropreButton from "@/_components/PropreButton";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { leftToPay } from "@/_redux/cartSlice";
+import { AppDispatch, RootState } from "@/app/_redux/store";
 
 export default function Fidalité({
   params: { locale },
@@ -13,12 +17,18 @@ export default function Fidalité({
 }) {
   const t = useTranslations("page.fidalite");
   const n = useTranslations("nav");
+  const dispatch: AppDispatch = useDispatch();
+  const { totalPrice } = useSelector((state: RootState) => state.cart);
+
+  const handleleftpayNo = () => {
+    dispatch(leftToPay(totalPrice));
+  };
 
   return (
     <div className="flex justify-center items-center flex-col">
       <DiffFid title1={t("title1")} title2={t("title2")} />
       <div className="m-16 flex flex-row justify-center items-center">
-        <Link href={`/${locale}/payment`}>
+        <Link href={`/${locale}/payment`} onClick={handleleftpayNo}>
           <div
             className="min-h-44 min-w-52 mr-6 border-[3px] border-[#ff0000] rounded-[13px] flex flex-col justify-center
         hover:bg-gray-100 transition-colors duration-300"

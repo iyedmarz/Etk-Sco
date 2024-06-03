@@ -5,6 +5,15 @@ import DiffFid from "@/_components/diffFidalite/diffFidalite";
 import Numpad from "@/_components/NumPad/NumPad";
 import PropreButton from "@/_components/PropreButton";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { AppDispatch } from "@/app/_redux/store";
+import { useDispatch } from "react-redux";
+import { clientInfo } from "@/_redux/cartSlice";
+
+interface clientbalance {
+  id: string;
+  pts_fidality: number;
+}
 
 export default function saisirManuel({
   params: { locale },
@@ -13,6 +22,8 @@ export default function saisirManuel({
 }) {
   const t = useTranslations("page.saisieMan");
   const n = useTranslations("nav");
+  const router = useRouter();
+  const dispatch: AppDispatch = useDispatch();
 
   const [numTel, setNumTel] = useState("");
   console.log("num tel : ", numTel);
@@ -24,12 +35,12 @@ export default function saisirManuel({
   const handleLogin = async () => {
     try {
       if (!numTel) {
-        console.log("Phone number Required");
+        console.log("id card number required");
         return;
       }
 
-      const body = JSON.stringify({ num_tel: parseInt(numTel) });
-      const response = await fetch("http://localhost:5000/auth/phone", {
+      const body = JSON.stringify({ cin: numTel });
+      const response = await fetch("http://localhost:5000/auth/cin", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,14 +50,19 @@ export default function saisirManuel({
 
       const data = await response.json();
       console.log(data);
-      console.log(response.status);
-
+      console.log(data.payload.id);
+      console.log(data.payload.pts_fidality);
+      const clientBalance: clientbalance = {
+        id: data.payload.id,
+        pts_fidality: data.payload.pts_fidality,
+      };
+      dispatch(clientInfo(clientBalance));
       if (response.status === 201) {
         const { token } = data;
         localStorage.setItem("token", token);
-        window.location.href = `/${locale}/fidalite/solde`; // Redirect to dashboard or desired page
+        router.push(`/${locale}/fidalite/solde`); // Redirect to dashboard or desired page
       } else {
-        console.log("invalid Phone number");
+        console.log("invalid cin number");
       }
     } catch (err) {
       console.error("An error occurred", err);
