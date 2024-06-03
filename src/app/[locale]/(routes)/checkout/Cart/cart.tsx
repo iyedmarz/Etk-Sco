@@ -18,7 +18,7 @@ const Cart = ({ locale }: { locale: string }) => {
 
   const fetchData = async (barcode: string) => {
     try {
-      const response = await fetch(`http://localhost:5000/product/${barcode}`);
+      const response = await fetch(`http://localhost:5000/product/${barcode}`); //
       const responseData = await response.json();
       dispatch(addToCart(responseData));
     } catch (error) {
@@ -44,20 +44,39 @@ const Cart = ({ locale }: { locale: string }) => {
                 <th>{t("cart.montant")}</th>
               </tr>
               {cartItems.map((product) => (
-                <tr
-                  key={product.barcode}
-                  className={`border-b-2 ${
-                    selectedRows.includes(product.barcode) ? "selected" : ""
-                  }`} // selectedRows.includes(index)
-                  onClick={() => {
-                    dispatch(handleSelectedRows(product.barcode));
-                  }}
-                >
-                  <td className="text-left font-bold pl-5">{product.name}</td>
-                  <td>{product.price}€</td>
-                  <td>{product.quantity}</td>
-                  <td>{product.price_quantity}€</td>
-                </tr>
+                <>
+                  <tr
+                    key={product.barcode}
+                    className={`border-b-2 ${
+                      selectedRows.includes(product.barcode) ? "selected" : ""
+                    }`} // selectedRows.includes(index)
+                    onClick={() => {
+                      dispatch(handleSelectedRows(product.barcode));
+                    }}
+                  >
+                    <td className="text-left font-bold pl-5">{product.name}</td>
+                    <td>
+                      {Intl.NumberFormat("fr-TN", {
+                        style: "currency",
+                        currency: "TND",
+                      }).format(product.priceUnit)}
+                    </td>
+                    <td>{product.quantity}</td>
+                    <td>
+                      {Intl.NumberFormat("fr-TN", {
+                        style: "currency",
+                        currency: "TND",
+                      }).format(product.price_quantity)}
+                    </td>
+                  </tr>
+                  {product.promoDiscount && (
+                    <tr className="border-b-2">
+                      <td className="text-left font-bold pl-5" colSpan={4}>
+                        {t("cart.discount")}: {product.promoDiscount.discount}%
+                      </td>
+                    </tr>
+                  )}
+                </>
               ))}
             </tbody>
           </table>
@@ -80,11 +99,44 @@ const Cart = ({ locale }: { locale: string }) => {
         <button
           className="paybut"
           id=""
-          onClick={() => router.push(`/${locale}/fidalite`)}
+          onClick={() => {
+            if (totalPrice > 0) router.push(`/${locale}/fidalite`);
+          }}
         >
           <p>{t("payBut")}</p>
-          <p>{totalPrice} Dt</p>
+          <p>
+            {Intl.NumberFormat("fr-TN", {
+              style: "currency",
+              currency: "TND",
+            }).format(totalPrice)}
+          </p>
         </button>
+        <div className="flex flex-row">
+          <button
+            className="mx-2"
+            onClick={() => handleBarcodeScan("6191507220214")}
+          >
+            VitalaitLait
+          </button>
+          <button
+            className="mx-2"
+            onClick={() => handleBarcodeScan("6194001800319")}
+          >
+            Melliti
+          </button>
+          <button
+            className="mx-2"
+            onClick={() => handleBarcodeScan("6191513501086")}
+          >
+            President
+          </button>
+          <button
+            className="mx-2"
+            onClick={() => handleBarcodeScan("6194043001019")}
+          >
+            Delice
+          </button>
+        </div>
       </div>
       <BarcodeScanner onBarcodeScan={handleBarcodeScan} />
     </div>
