@@ -1,7 +1,7 @@
 "use client";
 import { useRouter, usePathname } from "next/navigation";
 import { Button, Modal } from "react-daisyui";
-import { useCallback, useRef } from "react";
+import { useCallback, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import NumPad from "@/_components/NumPad/NumPad";
@@ -30,7 +30,41 @@ export default function Home({
     settings.current?.showModal();
   }, [settings]);
 
-  const handlePass = () => {};
+  const [code, setCode] = useState("");
+  console.log(code);
+
+  const handlePass = (Input: string) => {
+    setCode(Input);
+  };
+
+  const handlelogin = async () => {
+    try {
+      if (!code) {
+        console.log("Access Code required");
+        return;
+      }
+
+      const body = JSON.stringify({ accessCode: code });
+      const response = await fetch("http://localhost:5000/auth/manager", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: body,
+      });
+      const data = await response.json();
+
+      if (response.status === 201) {
+        const { token } = data;
+        localStorage.setItem("token", token);
+        router.push("/settings/general");
+      } else {
+        console.log("invalid Access Code number");
+      }
+    } catch (err) {
+      console.error("An error occurred", err);
+    }
+  };
 
   return (
     <div className="h-[100%] w-[100%]">
@@ -62,16 +96,14 @@ export default function Home({
           <Modal.Actions className="flex flex-row">
             <form method="dialog">
               <Button className="min-w-56 normal-case  min-h-16 mt-10 bg-[#9c699b] text-[#FFFFFF] hover:text-black hover:bg-[#F4F4F4] font-bold text-2xl mr-2">
-                Close
+                Fermer
               </Button>
             </form>
             <Button
-              onClick={() => {
-                router.push("/settings/general");
-              }}
+              onClick={handlelogin}
               className="min-w-56 normal-case  min-h-16 mt-10 bg-[#9c699b] text-[#FFFFFF] hover:text-black hover:bg-[#F4F4F4] font-bold text-2xl mr-2"
             >
-              Confirm
+              Confirmer
             </Button>
           </Modal.Actions>
         </div>
