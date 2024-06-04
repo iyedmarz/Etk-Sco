@@ -46,14 +46,14 @@ export default function Payement({
             </IconButton>
           </div>
         </Link>
-        <Link href="">
+        {/* <Link href="">
           <div className="mr-6  border-[3px]  border-[#00000029] rounded-lg drop-shadow-xl min-w-52 min-h-44 flex justify-center items-center hover:bg-gray-100 transition-colors duration-300 ">
             <IconButton className=" flex flex-col justify-center items-center hover:bg-transparent">
               <Image src={autreImg} width={100} height={200} alt="" />
               <p className="text-[#9C699B] font-semibold">{t("other")}</p>
             </IconButton>
           </div>
-        </Link>
+        </Link> */}
       </div>
       <div>
         <PropreButton
