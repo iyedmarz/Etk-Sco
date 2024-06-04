@@ -71,8 +71,8 @@ const Cart = ({ locale }: { locale: string }) => {
                   </tr>
                   {product.promoDiscount && (
                     <tr className="border-b-2">
-                      <td className="text-left font-bold pl-5" colSpan={4}>
-                        {t("cart.discount")}: {product.promoDiscount.discount}%
+                      <td className="text-left  pl-5" colSpan={4}>
+                        Promotion: {product.promoDiscount * 100}%
                       </td>
                     </tr>
                   )}
@@ -81,19 +81,21 @@ const Cart = ({ locale }: { locale: string }) => {
             </tbody>
           </table>
         </div>
-        <div className="">
-          {/* <div className="upDownButtons">
-            <button></button>
-            <button></button>
-          </div> */}
-          <div className="attributesContainer">
-            <div>
-              {t("quantity")} {cartItems.length}
-            </div>
-            <div> {t("remise")} 0 Dt</div>
-            {/* <div> {t("TTC")} 0 Dt</div> */}
+        {/* <div className=""> */}
+        <div className="attributesContainer">
+          <div>
+            {t("quantity")} {cartItems.length}
           </div>
+          <div>
+            {t("remise")}
+            {Intl.NumberFormat("fr-TN", {
+              style: "currency",
+              currency: "TND",
+            }).format(0)}
+          </div>
+          {/* <div> {t("TTC")} 0 Dt</div> */}
         </div>
+        {/* </div> */}
       </div>
       <div className="pay">
         <button
