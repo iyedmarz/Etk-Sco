@@ -27,7 +27,8 @@
         "name": "Product",
         "price": "Price",
         "quantity": "Qty",
-        "montant": "Amount"
+        "montant": "Amount",
+        "discount": "Promotion"
       },
       "quantity": "Tot.Quantity:",
       "remise": "Rem.:",
@@ -81,7 +82,9 @@
       "other": "Other",
       "title3": "Follow the instructions",
       "title4": "of the credit card reader",
-      "title5": "of the change machine"
+      "title5": "of the change machine",
+      "success": "Payment Successful!",
+      "thanku": "Thank you for your purchase!"
     }
   }
 }

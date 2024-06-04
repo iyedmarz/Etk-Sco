@@ -1,13 +1,34 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import { Button, Modal } from "react-daisyui";
 import React from "react";
 import PropreButton from "@/_components/PropreButton";
 import SaisirNum from "@/_components/SaisirNumero/SaisirNum";
 import NumPad from "@/_components/NumPad/NumPad";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/_redux/store";
+import { addDiscount } from "@/_redux/cartSlice";
+
 import "./modals.css";
+
+// interface promoDiscount {
+//   codePromo: string;
+//   discount: number;
+//   brand: string;
+// }
+
+interface Promo {
+  codePromo: string;
+  libelle: string;
+  percentage: number;
+  totalNumberOfUse: number;
+  leftToUse: number;
+  offerDate: string;
+  offerValidity: string;
+  offeredBybrand: string;
+}
 
 export default function SaisirCodePromo({
   params: { locale },
@@ -15,12 +36,14 @@ export default function SaisirCodePromo({
   params: { locale: string };
 }) {
   const router = useRouter();
+  const dispatch: AppDispatch = useDispatch();
   const t = useTranslations("page.codePromo");
   const n = useTranslations("nav");
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<Promo | undefined>();
   const [promocode, setPromocode] = useState("");
   const refnotfound = useRef<HTMLDialogElement>(null);
   const ref = useRef<HTMLDialogElement>(null);
+  let i = 0;
 
   // POP UP MODAL unvalid promo code on call
   const handleShowNotFound = useCallback(() => {
@@ -40,37 +63,48 @@ export default function SaisirCodePromo({
   console.log(promocode);
 
   // Fetching the wanted Promo Code if found
-  const fetchData = async () => {
+  // const fetchData = async () => {
+  //   try {
+  //     console.log(promocode);
+  //     const response = await fetch(`http://localhost:5000/promo/${promocode}`);
+  //     const responseData = await response.json();
+  //     setData(responseData);
+  //   } catch (error) {
+  //     console.error("Error fetching data:", error);
+  //   }
+  // };
+  // console.log(data);
+
+  // let promoDiscount: promoDiscount;
+  async function handlePromoCheck() {
     try {
-      const response = await fetch(`http://localhost:5000/promo/${promocode}`);
+      console.log(promocode);
+      const response = await fetch(
+        `http://localhost:5000/promo/one/${promocode}`
+      );
       const responseData = await response.json();
-      if (responseData.length > 1) {
-        setData(null);
+      setData(responseData);
+      if (data) {
+        console.log("Valid Promo Code");
+        handleShow();
+        // promoDiscount = {
+        //   codePromo: data.codePromo,
+        //   discount: data.percentage,
+        //   brand: data.offeredBybrand,
+        // };
+        let promoDiscount = data.percentage;
+        dispatch(addDiscount(promoDiscount)); // Dispatching promoDiscount to Redux store
+        setTimeout(() => {
+          router.push(`/${locale}/checkout`);
+        }, 3000);
       } else {
-        setData(responseData);
+        console.log("not Valid Promo Code");
+        // handleShowNotFound();
       }
     } catch (error) {
       console.error("Error fetching data:", error);
     }
-  };
-  fetchData();
-
-  console.log(data);
-
-  const handlePromoCheck = () => {
-    if (data === null) {
-      // if Unvalid Promo Code : pop Unvalid
-      console.log("not Valid Promo Code");
-      handleShowNotFound();
-    } else {
-      // if Valid Promo Code : pop valid && after 5s route to checkout
-      console.log("Valid Promo Code");
-      handleShow();
-      setTimeout(() => {
-        router.push(`/${locale}/checkout`);
-      }, 5000);
-    }
-  };
+  }
 
   return (
     <div className="flex flex-col justify-around items-center size-full">
@@ -85,7 +119,9 @@ export default function SaisirCodePromo({
           Nom={n("backBut")}
         />
         <PropreButton
-          funct={handlePromoCheck}
+          funct={() => {
+            handlePromoCheck();
+          }}
           Classcss="min-w-56 normal-case  min-h-16 mt-10 bg-[#9c699b] text-[#FFFFFF] hover:text-black font-bold text-2xl mr-2"
           Nom={n("validBut")}
         />
@@ -114,8 +150,9 @@ export default function SaisirCodePromo({
       >
         <div className="popNotFound">
           <p className="titreNotFound">
-            <b>Valid Promo Code!!</b>
+            <b className="flex justify-center items-center">{data?.libelle}</b>
           </p>
+          <button onClick={() => router.push(`/${locale}/checkout`)}></button>
         </div>
       </Modal>
     </div>

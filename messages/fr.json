@@ -44,8 +44,8 @@
     "fidalite": {
       "title1": "Souhaitez-vous accéder",
       "title2": "à votre compte fidélité ?",
-      "yes": "Yes",
-      "no": "No",
+      "yes": "Oui",
+      "no": "Non",
       "scan": "Scannez votre",
       "cartefid": "carte de fidalité",
       "manuelBut2": "Saisier le N° de la Carte",
@@ -65,7 +65,7 @@
       "title1": "Veuillez choisir votre",
       "title2": "mode d'identification",
       "scanCart": "Scanner Carte",
-      "saisirTel": "Saisir N° Tél",
+      "saisirTel": "Saisir N° de CIN",
       "scanCart2": "Scannez votre",
       "cartFid": "carte de fidalité",
       "title3": "Scannez votre",
@@ -82,7 +82,10 @@
       "aCaisse": "A la Caisse",
       "other": "Autre",
       "title3": "Suiver les indication",
-      "title4": "du lecteur de carte bancaire"
+      "title4": "du lecteur de carte bancaire",
+      "title5": "de la machine de change",
+      "success": "Paiement réussi!",
+      "thanku": "Merci pour votre achat!"
     }
   }
 }

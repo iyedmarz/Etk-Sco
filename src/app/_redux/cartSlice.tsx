@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Empty } from "antd";
 
-interface promoDiscount {
-  codePromo: string;
-  discount: number;
-  brand?: string;
-}
+// interface promoDiscount {
+//   codePromo: string;
+//   discount: number;
+//   brand?: string;
+// }
 
 interface Product {
   barcode: string;
@@ -16,7 +16,7 @@ interface Product {
   quantity: number;
   pts_fid: number;
   price_quantity: number;
-  promoDiscount: promoDiscount;
+  promoDiscount: number;
 }
 
 interface clientbalance {
@@ -118,18 +118,17 @@ export const cartSlice = createSlice({
       state.selectedRows = newSelectedRows;
       console.log(state.selectedRows);
     },
-    addDiscount: (state, action: PayloadAction<promoDiscount>) => {
+    addDiscount: (state, action: PayloadAction<number>) => {
       console.log(action.payload);
       state.items.map((row) => {
         console.log(row);
-        if (row.brand === action.payload.brand) {
-          row.promoDiscount.codePromo = action.payload.codePromo;
-          row.promoDiscount.discount = action.payload.discount;
+        if (row.brand === "Delice") {
+          row.promoDiscount = action.payload;
           console.log(row.promoDiscount);
-          row.price_quantity -= row.price_quantity * action.payload.discount;
+          state.totalPrice -= row.price_quantity * action.payload;
+          row.price_quantity -= row.price_quantity * action.payload;
           console.log(row);
         }
-        console.log(state.items);
       });
     },
     clientInfo: (state, action: PayloadAction<clientbalance>) => {
